@@ -1,0 +1,52 @@
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -5%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.custom-cursor.visible {
+  opacity: 1;
+}
+
+.cursor-image {
+  width: 28px;
+  height: auto;
+  filter: brightness(0) saturate(100%) invert(10%) sepia(100%) saturate(5000%) hue-rotate(0deg) brightness(80%)
+          drop-shadow(0 0 3px rgba(153, 0, 0, 0.8))
+          drop-shadow(0 0 6px rgba(204, 34, 0, 0.5));
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.custom-cursor:active .cursor-image {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(5000%) hue-rotate(0deg) brightness(100%)
+          drop-shadow(0 0 6px rgba(255, 68, 0, 1))
+          drop-shadow(0 0 12px rgba(204, 34, 0, 0.8));
+  transform: scale(1.1);
+}
+
+/* Hide default cursor globally */
+* {
+  cursor: none !important;
+}
+
+/* Show default cursor on inputs and textareas for usability */
+input, textarea, select {
+  cursor: text !important;
+}
+
+a, button, [role="button"] {
+  cursor: none !important;
+}
+
+/* On mobile/touch devices, don't use custom cursor */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+  .custom-cursor {
+    display: none;
+  }
+}

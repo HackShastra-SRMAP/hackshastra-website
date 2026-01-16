@@ -1,0 +1,78 @@
+.gooey-button {
+  color: #990000;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 0.9em 1.6em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  vertical-align: middle;
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 2px solid #990000;
+  border-radius: 0;
+  background: transparent;
+  transition: all 500ms ease;
+  font-family: inherit;
+}
+
+.gooey-button__blobs {
+  height: 100%;
+  filter: url(#goo-button);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: -3px;
+  right: -1px;
+  z-index: -1;
+  border-radius: 0;
+}
+
+.gooey-button__blobs div {
+  background-color: #990000;
+  width: 34%;
+  height: 100%;
+  border-radius: 100%;
+  position: absolute;
+  transform: scale(1.4) translateY(125%) translateZ(0);
+  transition: all 500ms ease;
+}
+
+.gooey-button__blobs div:nth-child(1) {
+  left: -5%;
+}
+
+.gooey-button__blobs div:nth-child(2) {
+  left: 30%;
+  transition-delay: 60ms;
+}
+
+.gooey-button__blobs div:nth-child(3) {
+  left: 66%;
+  transition-delay: 25ms;
+}
+
+.gooey-button:hover {
+  color: #fff;
+  border-color: #990000;
+}
+
+.gooey-button:hover .gooey-button__blobs div {
+  transform: scale(1.4) translateY(0) translateZ(0);
+}
+
+/* Icon styling */
+.gooey-button svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.gooey-button:hover svg {
+  transform: translateX(4px);
+}
