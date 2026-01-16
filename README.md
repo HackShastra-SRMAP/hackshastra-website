@@ -82,7 +82,7 @@ src/
 ## 📧 Contact
 
 - **Email**: hssc2025@srmap.edu.in
-- **Website**: [hackshastra.in](https://hackshastra.in)
+- **Website**: https://hackshastra-website.vercel.app/
 
 ## 📄 License
 
