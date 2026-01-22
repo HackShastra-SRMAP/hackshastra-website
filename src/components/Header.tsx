@@ -9,7 +9,7 @@ const navLinks = [
   { label: "About", href: "/about" },
   { label: "Events", href: "#events" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Team", href: "#team" },
+  { label: "Team", href: "/team" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -18,7 +18,7 @@ const menuItems = [
   { label: "About", ariaLabel: "Learn about us", link: "/about" },
   { label: "Events", ariaLabel: "View our events", link: "#events" },
   { label: "Gallery", ariaLabel: "View gallery", link: "/gallery" },
-  { label: "Team", ariaLabel: "Meet the team", link: "#team" },
+  { label: "Team", ariaLabel: "Meet the team", link: "/team" },
   { label: "Contact", ariaLabel: "Contact us", link: "/contact" },
   { label: "Join Us", ariaLabel: "Join our club", link: "/join" },
 ];

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ArrowRight, Mail, Volume2, VolumeX } from "lucide-react";
 import logoPng from '@/assets/download.png';
 import bannerVideo from '@/assets/Image_to_Video_Generation.mp4';
@@ -6,14 +6,33 @@ import VariableProximity from "@/components/ui/VariableProximity";
 import GooeyButton from "@/components/ui/GooeyButton";
 
 const Hero = () => {
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false); // Always start unmuted
   const videoRef = useRef<HTMLVideoElement>(null);
   const titleContainerRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    // Ensure video plays when component mounts
+    if (videoRef.current) {
+      // Always start unmuted
+      videoRef.current.muted = false;
+      
+      videoRef.current.play().catch(err => {
+        console.log('Autoplay failed, trying muted:', err);
+        // If autoplay with sound fails, try muted
+        if (videoRef.current) {
+          videoRef.current.muted = true;
+          setIsMuted(true);
+          videoRef.current.play();
+        }
+      });
+    }
+  }, []); // Empty dependency array - only run once on mount
+
   const toggleMute = () => {
     if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
-      setIsMuted(!isMuted);
+      const newMutedState = !videoRef.current.muted;
+      videoRef.current.muted = newMutedState;
+      setIsMuted(newMutedState);
     }
   };
 
@@ -95,21 +114,6 @@ const Hero = () => {
               AI, cybersecurity, web development, and system design. Where tradition meets technology, 
               breakthroughs happen.
             </p>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-t border-border">
-            {[
-              { value: "500k+", label: "Social Media Reach" },
-              { value: "4", label: "College Chapters" },
-              { value: "3", label: "Major Events" },
-              { value: "100+", label: "Brand Partners" },
-            ].map((stat, index) => (
-              <div key={index}>
-                <div className="text-3xl md:text-4xl font-black gradient-text">{stat.value}</div>
-                <div className="text-muted-foreground text-sm mt-1">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </div>

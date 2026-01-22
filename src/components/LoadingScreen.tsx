@@ -4,9 +4,10 @@ import logoImg from '@/assets/download.png';
 
 interface LoadingScreenProps {
   minDuration?: number;
+  onLoadingComplete?: () => void;
 }
 
-const LoadingScreen = ({ minDuration = 2500 }: LoadingScreenProps) => {
+const LoadingScreen = ({ minDuration = 2500, onLoadingComplete }: LoadingScreenProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -27,7 +28,10 @@ const LoadingScreen = ({ minDuration = 2500 }: LoadingScreenProps) => {
       setProgress(100);
       setTimeout(() => {
         setFadeOut(true);
-        setTimeout(() => setIsLoading(false), 800);
+        setTimeout(() => {
+          setIsLoading(false);
+          onLoadingComplete?.();
+        }, 800);
       }, 300);
     }, minDuration);
 
@@ -35,7 +39,7 @@ const LoadingScreen = ({ minDuration = 2500 }: LoadingScreenProps) => {
       clearTimeout(timer);
       clearInterval(progressInterval);
     };
-  }, [minDuration]);
+  }, [minDuration, onLoadingComplete]);
 
   if (!isLoading) return null;
 

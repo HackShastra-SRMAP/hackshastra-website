@@ -1,17 +1,27 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Terminal, ShieldCheck } from "lucide-react";
+import { Rocket, Users, Lightbulb, Target } from "lucide-react";
 
 const features = [
   {
-    icon: Terminal,
-    title: "Technical Rigor",
-    description: "Mastering the complex tools of modern computation with precision."
+    icon: Rocket,
+    title: "Creator-Led Movement",
+    description: "India's first creator-led tech community with 300K+ reach and 2600+ active members."
   },
   {
-    icon: ShieldCheck,
-    title: "Disciplined Culture",
-    description: "Upholding values that build leaders and ethical professionals."
+    icon: Users,
+    title: "Student Empowerment",
+    description: "A platform where students can build, learn, lead, and grow together."
+  },
+  {
+    icon: Lightbulb,
+    title: "Innovation First",
+    description: "From beginners to advanced devs, we create spaces for real-world problem solving."
+  },
+  {
+    icon: Target,
+    title: "Builder Culture",
+    description: "Ideas are shared without fear, teams built across departments, careers launched from side-projects."
   }
 ];
 
@@ -21,14 +31,20 @@ const Mission = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5 flex flex-col gap-6">
-            <p className="text-primary text-sm font-black tracking-[0.3em] uppercase">The Shastra Mission</p>
+            <p className="text-primary text-sm font-black tracking-[0.3em] uppercase">Our Mission</p>
             <h2 className="text-foreground text-3xl md:text-4xl font-bold leading-tight">
-              Upholding the standards of technical excellence.
+              Building India's most accessible student-led tech ecosystem.
             </h2>
           </div>
           <div className="md:col-span-7 flex flex-col gap-8">
             <p className="text-muted-foreground text-lg leading-relaxed">
-              HackShastra is more than just a coding club; it is a discipline-oriented community where ancient wisdom meets cutting-edge technology. We believe that true mastery requires both technical skill and professional conduct.
+              HackShastra is India's first creator-led tech community, built at the intersection of learning, 
+              innovation, and student empowerment. Founded by Uday Sharma, we're not just a community — 
+              we're a movement to make tech accessible, exciting, and real for everyone.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              The HackShastra SRM University-AP Chapter is a launchpad for creators, coders, designers, and dreamers. 
+              This isn't just another tech society — it's a student-first, community-driven movement where bold ideas meet real action.
             </p>
             <Separator className="my-2" />
             <div className="grid sm:grid-cols-2 gap-6">

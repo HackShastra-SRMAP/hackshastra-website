@@ -1,40 +1,44 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import InfiniteMenu from "@/components/ui/InfiniteMenu";
+import img1 from '@/assets/1.jpg';
+import img2 from '@/assets/2.jpg';
+import img3 from '@/assets/3.jpg';
+import imgReach from '@/assets/reach.jpg';
 
 const galleryItems = [
   {
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800",
+    image: img1,
     link: "#",
     title: "Collaboration",
     description: "Team working together"
   },
   {
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800",
+    image: img2,
     link: "#",
     title: "Workshop",
     description: "Learning sessions"
   },
   {
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800",
+    image: img3,
     link: "#",
     title: "Meeting",
     description: "Planning ahead"
   },
   {
-    image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800",
+    image: imgReach,
     link: "#",
     title: "Hackathon",
     description: "Building together"
   },
   {
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800",
+    image: img1,
     link: "#",
     title: "Coding",
     description: "Deep focus mode"
   },
   {
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800",
+    image: img2,
     link: "#",
     title: "Presentation",
     description: "Sharing ideas"
