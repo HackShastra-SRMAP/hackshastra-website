@@ -44,7 +44,7 @@ export default function GalleryPage() {
 
       <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 text-center">
         <h1 className="text-2xl font-black tracking-tight">
-          <span className="text-primary">HackShastra</span> Gallery
+          <span className="text-primary">HackShastra SRM-AP</span> Gallery
         </h1>
         <p className="text-muted-foreground text-xs mt-1">Click to enlarge</p>
       </div>

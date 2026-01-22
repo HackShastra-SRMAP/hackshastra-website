@@ -29,6 +29,7 @@ const Events = () => {
                 <img 
                   src={banner3} 
                   alt="TECHEXPO Banner" 
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 {/* Spotlight mask effect - only on desktop */}

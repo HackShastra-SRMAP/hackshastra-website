@@ -59,7 +59,7 @@ export default function JoinPage() {
           {/* Hero */}
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-4">
-              Join <span className="text-primary">HackShastra</span>
+              Join <span className="text-primary">HackShastra SRM-AP</span>
             </h1>
             <p className="text-muted-foreground max-w-xl mx-auto">
               Be part of SRM-AP's most innovative tech community. 
@@ -226,7 +226,7 @@ export default function JoinPage() {
                     required
                     rows={4}
                     className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-primary focus:outline-none transition-colors resize-none"
-                    placeholder="Tell us about yourself and why you want to be part of HackShastra..."
+                    placeholder="Tell us about yourself and why you want to be part of HackShastra SRM-AP..."
                   />
                 </div>
 

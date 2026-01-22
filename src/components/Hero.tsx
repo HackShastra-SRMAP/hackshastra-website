@@ -5,28 +5,53 @@ import bannerVideo from '@/assets/Image_to_Video_Generation.mp4';
 import VariableProximity from "@/components/ui/VariableProximity";
 import GooeyButton from "@/components/ui/GooeyButton";
 
-const Hero = () => {
-  const [isMuted, setIsMuted] = useState(false); // Always start unmuted
+interface HeroProps {
+  loadingComplete?: boolean;
+}
+
+const Hero = ({ loadingComplete = false }: HeroProps) => {
+  const [isMuted, setIsMuted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const titleContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Ensure video plays when component mounts
-    if (videoRef.current) {
-      // Always start unmuted
-      videoRef.current.muted = false;
-      
-      videoRef.current.play().catch(err => {
-        console.log('Autoplay failed, trying muted:', err);
-        // If autoplay with sound fails, try muted
-        if (videoRef.current) {
-          videoRef.current.muted = true;
-          setIsMuted(true);
-          videoRef.current.play();
-        }
+    if (!loadingComplete) return;
+    
+    const video = videoRef.current;
+    if (!video) return;
+    
+    // Start muted to ensure autoplay works
+    video.muted = true;
+    setIsMuted(true);
+    
+    // Play the video (muted autoplay is allowed by all browsers)
+    const playPromise = video.play();
+    
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        console.log('Video playing (muted)');
+        // After video starts, try to unmute
+        setTimeout(() => {
+          video.muted = false;
+          setIsMuted(false);
+        }, 100);
+      }).catch((err) => {
+        console.log('Autoplay failed:', err);
       });
     }
-  }, []); // Empty dependency array - only run once on mount
+
+    // Stop video after it ends (play once only)
+    const handleEnded = () => {
+      video.pause();
+      video.currentTime = 0;
+    };
+
+    video.addEventListener('ended', handleEnded);
+    
+    return () => {
+      video.removeEventListener('ended', handleEnded);
+    };
+  }, [loadingComplete]);
 
   const toggleMute = () => {
     if (videoRef.current) {
@@ -43,9 +68,9 @@ const Hero = () => {
         <video
           ref={videoRef}
           autoPlay
-          loop
           muted={isMuted}
           playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src={bannerVideo} type="video/mp4" />
@@ -81,7 +106,7 @@ const Hero = () => {
             <div className="flex-1 pb-2" ref={titleContainerRef}>
               <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-2">
                 <VariableProximity
-                  label="HackShastra"
+                  label="HackShastra SRM-AP"
                   className="fire-text"
                   fromFontVariationSettings="'wght' 400"
                   toFontVariationSettings="'wght' 900"
@@ -91,7 +116,7 @@ const Hero = () => {
                 />
               </h1>
               <p className="text-muted-foreground text-lg mb-6">
-                SRM University-AP Student Chapter
+                Student Chapter
               </p>
               <div className="flex flex-wrap gap-3">
                 <GooeyButton href="/join">
@@ -110,7 +135,7 @@ const Hero = () => {
           <div className="max-w-3xl mb-16">
             <p className="text-muted-foreground text-lg leading-relaxed">
               We are a community of students driven by curiosity and a shared passion for technology. 
-              At HackShastra, we merge ancient wisdom with cutting-edge innovation, exploring fields like 
+              At HackShastra SRM-AP, we merge ancient wisdom with cutting-edge innovation, exploring fields like 
               AI, cybersecurity, web development, and system design. Where tradition meets technology, 
               breakthroughs happen.
             </p>

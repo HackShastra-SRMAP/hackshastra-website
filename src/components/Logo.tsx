@@ -22,7 +22,7 @@ const Logo = ({ size = 'md', showText = true }: LogoProps) => {
         />
       </div>
       {showText && (
-        <h2 className="text-primary text-xl font-semibold tracking-wide font-heading">HACKSHASTRA</h2>
+        <h2 className="text-primary text-xl font-semibold tracking-wide font-heading">HACKSHASTRA SRM-AP</h2>
       )}
     </div>
   );

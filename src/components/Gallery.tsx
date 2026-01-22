@@ -53,7 +53,7 @@ const Gallery = () => {
           <div className="text-center sm:text-left">
             <p className="text-primary text-sm font-semibold tracking-widest uppercase mb-4">Gallery</p>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight">
-              Life at <span className="gradient-text">HackShastra</span>
+              Life at <span className="gradient-text">HackShastra SRM-AP</span>
             </h2>
           </div>
           <Link

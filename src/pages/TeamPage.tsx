@@ -203,7 +203,7 @@ export default function TeamPage() {
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-primary text-sm font-black tracking-[0.3em] uppercase mb-4">Meet The Team</p>
           <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
-            The Minds Behind <span className="text-primary">HackShastra</span>
+            The Minds Behind <span className="text-primary">HackShastra SRM-AP</span>
           </h1>
           <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
             Our dedicated team of leaders and innovators working together to build 
@@ -494,7 +494,7 @@ export default function TeamPage() {
             to="/join"
             className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-colors"
           >
-            Join HackShastra
+            Join HackShastra SRM-AP
           </Link>
         </div>
       </section>

@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Mission from './components/Mission'
 import Events from './components/Events'
 import Gallery from './components/Gallery'
-import CTA from './components/CTA'
 import Footer from './components/Footer'
 import ClickEffect from './components/ClickEffect'
 import CustomCursor from './components/CustomCursor'
@@ -17,18 +17,19 @@ import TeamPage from './pages/TeamPage'
 import TexpoRegisterPage from './pages/TexpoRegisterPage'
 
 function HomePage() {
+  const [loadingComplete, setLoadingComplete] = useState(false);
+
   return (
     <div className="bg-background text-foreground min-h-screen">
-      <LoadingScreen minDuration={2500} />
+      <LoadingScreen minDuration={2500} onLoadingComplete={() => setLoadingComplete(true)} />
       <CustomCursor />
       <ClickEffect />
       <Header />
       <main>
-        <Hero />
+        <Hero loadingComplete={loadingComplete} />
         <Mission />
         <Events />
         <Gallery />
-        <CTA />
       </main>
       <Footer />
     </div>

@@ -62,7 +62,7 @@ const LoadingScreen = ({ minDuration = 2500, onLoadingComplete }: LoadingScreenP
         </div>
         
         <div className="loading-text-container">
-          <h1 className="loading-title">HackShastra</h1>
+          <h1 className="loading-title">HackShastra SRM-AP</h1>
         </div>
 
         <div className="loading-bar-container">

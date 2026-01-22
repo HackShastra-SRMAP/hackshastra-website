@@ -64,7 +64,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-primary text-sm font-black tracking-[0.3em] uppercase mb-4">About HackShastra</p>
+          <p className="text-primary text-sm font-black tracking-[0.3em] uppercase mb-4">About HackShastra SRM-AP</p>
           <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
             India's First <span className="text-primary">Creator-Led</span> Tech Community
           </h1>
@@ -203,7 +203,7 @@ export default function AboutPage() {
             to="/join"
             className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-colors"
           >
-            Join HackShastra
+            Join HackShastra SRM-AP
           </Link>
         </div>
       </section>

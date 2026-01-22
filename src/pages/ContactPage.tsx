@@ -45,7 +45,7 @@ export default function ContactPage() {
               Get in <span className="text-primary">Touch</span>
             </h1>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Have questions about HackShastra? Want to collaborate or sponsor an event? 
+              Have questions about HackShastra SRM-AP? Want to collaborate or sponsor an event? 
               We'd love to hear from you.
             </p>
           </div>
