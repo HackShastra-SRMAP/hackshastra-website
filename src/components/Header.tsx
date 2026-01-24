@@ -7,7 +7,7 @@ import logoPng from '@/assets/download.png';
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "About", href: "/about" },
-  { label: "Events", href: "#events" },
+  { label: "Events", href: "/events" },
   { label: "Gallery", href: "/gallery" },
   { label: "Team", href: "/team" },
   { label: "Contact", href: "/contact" },
@@ -16,7 +16,7 @@ const navLinks = [
 const menuItems = [
   { label: "Home", ariaLabel: "Go to home", link: "#" },
   { label: "About", ariaLabel: "Learn about us", link: "/about" },
-  { label: "Events", ariaLabel: "View our events", link: "#events" },
+  { label: "Events", ariaLabel: "View our events", link: "/events" },
   { label: "Gallery", ariaLabel: "View gallery", link: "/gallery" },
   { label: "Team", ariaLabel: "Meet the team", link: "/team" },
   { label: "Contact", ariaLabel: "Contact us", link: "/contact" },

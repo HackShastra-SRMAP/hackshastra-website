@@ -4,7 +4,6 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Mission from './components/Mission'
 import Events from './components/Events'
-import Gallery from './components/Gallery'
 import Footer from './components/Footer'
 import ClickEffect from './components/ClickEffect'
 import CustomCursor from './components/CustomCursor'
@@ -15,6 +14,7 @@ import ContactPage from './pages/ContactPage'
 import JoinPage from './pages/JoinPage'
 import TeamPage from './pages/TeamPage'
 import TexpoRegisterPage from './pages/TexpoRegisterPage'
+import EventsPage from './pages/EventsPage'
 
 function HomePage() {
   const [loadingComplete, setLoadingComplete] = useState(false);
@@ -29,7 +29,6 @@ function HomePage() {
         <Hero loadingComplete={loadingComplete} />
         <Mission />
         <Events />
-        <Gallery />
       </main>
       <Footer />
     </div>
@@ -47,6 +46,7 @@ function App() {
         <Route path="/join" element={<JoinPage />} />
         <Route path="/team" element={<TeamPage />} />
         <Route path="/texpo-register" element={<TexpoRegisterPage />} />
+        <Route path="/events" element={<EventsPage />} />
       </Routes>
     </BrowserRouter>
   )
