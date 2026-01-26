@@ -11,11 +11,14 @@ interface HeroProps {
 
 const Hero = ({ loadingComplete = false }: HeroProps) => {
   const [isMuted, setIsMuted] = useState(false);
+  const [hasPlayedOnce, setHasPlayedOnce] = useState(() => {
+    return sessionStorage.getItem('videoPlayed') === 'true';
+  });
   const videoRef = useRef<HTMLVideoElement>(null);
   const titleContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!loadingComplete) return;
+    if (!loadingComplete || hasPlayedOnce) return;
     
     const video = videoRef.current;
     if (!video) return;
@@ -44,6 +47,8 @@ const Hero = ({ loadingComplete = false }: HeroProps) => {
     const handleEnded = () => {
       video.pause();
       video.currentTime = 0;
+      sessionStorage.setItem('videoPlayed', 'true');
+      setHasPlayedOnce(true);
     };
 
     video.addEventListener('ended', handleEnded);
@@ -51,7 +56,7 @@ const Hero = ({ loadingComplete = false }: HeroProps) => {
     return () => {
       video.removeEventListener('ended', handleEnded);
     };
-  }, [loadingComplete]);
+  }, [loadingComplete, hasPlayedOnce]);
 
   const toggleMute = () => {
     if (videoRef.current) {
@@ -67,7 +72,6 @@ const Hero = ({ loadingComplete = false }: HeroProps) => {
       <div className="relative h-[50vh] md:h-[60vh] w-full overflow-hidden">
         <video
           ref={videoRef}
-          autoPlay
           muted={isMuted}
           playsInline
           preload="auto"

@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Mission from './components/Mission'
@@ -17,11 +17,23 @@ import TexpoRegisterPage from './pages/TexpoRegisterPage'
 import EventsPage from './pages/EventsPage'
 
 function HomePage() {
-  const [loadingComplete, setLoadingComplete] = useState(false);
+  const [loadingComplete, setLoadingComplete] = useState(() => {
+    // Check if loading has been completed in this session
+    return sessionStorage.getItem('loadingComplete') === 'true';
+  });
+  const showLoading = sessionStorage.getItem('loadingComplete') !== 'true';
+
+  useEffect(() => {
+    if (loadingComplete) {
+      sessionStorage.setItem('loadingComplete', 'true');
+    }
+  }, [loadingComplete]);
 
   return (
     <div className="bg-background text-foreground min-h-screen">
-      <LoadingScreen minDuration={2500} onLoadingComplete={() => setLoadingComplete(true)} />
+      {showLoading && (
+        <LoadingScreen minDuration={2500} onLoadingComplete={() => setLoadingComplete(true)} />
+      )}
       <CustomCursor />
       <ClickEffect />
       <Header />

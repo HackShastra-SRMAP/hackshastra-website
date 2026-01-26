@@ -39,13 +39,22 @@ export default function JoinPage() {
 
       {!videoEnded ? (
         // Video Section
-        <div className="fixed inset-0 z-40 bg-black flex items-center justify-center overflow-hidden">
+        <div className="fixed inset-0 z-40 bg-black" style={{ width: '100vw', height: '100vh', overflow: 'hidden' }}>
           <video
             ref={videoRef}
             autoPlay
             playsInline
-            className="min-w-full min-h-full object-cover scale-110"
-            style={{ transform: 'scale(1.1) translateY(-2%)' }}
+            muted
+            className="w-full h-full"
+            style={{
+              position: 'absolute',
+              top: '0',
+              left: '0',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center'
+            }}
           >
             <source src={teaserVideo} type="video/mp4" />
           </video>

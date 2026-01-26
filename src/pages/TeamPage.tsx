@@ -26,13 +26,10 @@ const leadership: TeamMember[] = [
     instagram: "https://www.instagram.com/ghule_aniketh/"
   },
   {
-    name: "Vedansh Rathore",
+    name: "Aditya Pratap Singh",
     role: "Co-Leader",
-    specialty: "",
-    image: new URL('@/assets/Photo2.jpg.jpeg', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/vedansh-rathore",
-    github: "https://github.com/Graypool",
-    instagram: "https://www.instagram.com/r_vedansh/"
+    specialty: "2nd Year",
+    image: new URL('@/assets/WhatsApp Image 2026-01-21 at 11.30.09 PM.jpeg', import.meta.url).href
   }
 ];
 
@@ -41,7 +38,7 @@ const coreLeadership: TeamMember[] = [
     name: "Kartikay Mishra",
     role: "Events Lead",
     specialty: "",
-    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23111827'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-size='24' fill='%23DC143C'%3EComing Soon%3C/text%3E%3C/svg%3E"
+    image: new URL('@/assets/1764706409864 - Kartikay Mishra _ AP24110010801.jpg', import.meta.url).href
   },
   {
     name: "Aditi Kotnala",
@@ -68,12 +65,23 @@ const coreLeadership: TeamMember[] = [
   }
 ];
 
-const clubAdvisory: TeamMember = {
-  name: "Mr. Rijvan Beg",
-  role: "Faculty Advisor",
-  specialty: "Assistant Professor, Department of Computer Science and Engineering",
-  image: new URL('@/assets/WhatsApp Image 2026-01-22 at 9.03.03 PM.jpeg', import.meta.url).href
-};
+const clubAdvisory: TeamMember[] = [
+  {
+    name: "Mr. Rijvan Beg",
+    role: "Faculty Advisor",
+    specialty: "Assistant Professor, Department of Computer Science and Engineering",
+    image: new URL('@/assets/WhatsApp Image 2026-01-22 at 9.03.03 PM.jpeg', import.meta.url).href
+  },
+  {
+    name: "Vedansh Rathore",
+    role: "Student Advisor",
+    specialty: "",
+    image: new URL('@/assets/Photo2.jpg.jpeg', import.meta.url).href,
+    linkedin: "https://www.linkedin.com/in/vedansh-rathore",
+    github: "https://github.com/Graypool",
+    instagram: "https://www.instagram.com/r_vedansh/"
+  }
+];
 
 const eventsTeam: TeamMember[] = [
   {
@@ -226,28 +234,56 @@ export default function TeamPage() {
             <p className="text-primary text-sm font-black tracking-[0.3em] uppercase">Guidance</p>
             <h2 className="text-foreground text-3xl md:text-4xl font-bold">Club Advisory</h2>
           </div>
-          <div className="flex justify-center">
-            <TiltedCard
-              imageSrc={clubAdvisory.image}
-              altText={clubAdvisory.name}
-              captionText={clubAdvisory.role}
-              containerHeight="320px"
-              containerWidth="240px"
-              imageHeight="320px"
-              imageWidth="240px"
-              rotateAmplitude={12}
-              scaleOnHover={1.1}
-              showMobileWarning={false}
-              showTooltip={true}
-              displayOverlayContent={true}
-              overlayContent={
-                <div>
-                  <p className="tilted-card-overlay-name">{clubAdvisory.name}</p>
-                  <p className="tilted-card-overlay-role">{clubAdvisory.role}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{clubAdvisory.specialty}</p>
-                </div>
-              }
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 justify-items-center max-w-2xl mx-auto">
+            {clubAdvisory.map((member, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <TiltedCard
+                  imageSrc={member.image}
+                  altText={member.name}
+                  captionText={member.role}
+                  containerHeight="320px"
+                  containerWidth="240px"
+                  imageHeight="320px"
+                  imageWidth="240px"
+                  rotateAmplitude={12}
+                  scaleOnHover={1.1}
+                  showMobileWarning={false}
+                  showTooltip={true}
+                  displayOverlayContent={true}
+                  overlayContent={
+                    <div>
+                      <p className="tilted-card-overlay-name">{member.name}</p>
+                      <p className="tilted-card-overlay-role">{member.role}</p>
+                      <p className="text-xs text-muted-foreground mt-1">{member.specialty}</p>
+                    </div>
+                  }
+                />
+                {(member.linkedin || member.github || member.portfolio || member.instagram) && (
+                  <div className="flex gap-3 mt-4">
+                    {member.linkedin && (
+                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                        <Linkedin className="w-5 h-5" />
+                      </a>
+                    )}
+                    {member.github && (
+                      <a href={member.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                        <Github className="w-5 h-5" />
+                      </a>
+                    )}
+                    {member.portfolio && (
+                      <a href={member.portfolio} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                        <Globe className="w-5 h-5" />
+                      </a>
+                    )}
+                    {member.instagram && (
+                      <a href={member.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                        <Instagram className="w-5 h-5" />
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -257,7 +293,7 @@ export default function TeamPage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col gap-4 mb-16 text-center">
             <p className="text-primary text-sm font-black tracking-[0.3em] uppercase">The Leaders</p>
-            <h2 className="text-foreground text-3xl md:text-4xl font-bold">Leadership</h2>
+            <h2 className="text-foreground text-3xl md:text-4xl font-bold">Community Board</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 justify-items-center max-w-2xl mx-auto">
             {leadership.map((member, index) => (
@@ -318,7 +354,7 @@ export default function TeamPage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col gap-4 mb-16 text-center">
             <p className="text-primary text-sm font-black tracking-[0.3em] uppercase">The Team</p>
-            <h2 className="text-foreground text-3xl md:text-4xl font-bold">Co-Leader</h2>
+            <h2 className="text-foreground text-3xl md:text-4xl font-bold">Wings Leads</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
             {coreLeadership.map((member, index) => (
