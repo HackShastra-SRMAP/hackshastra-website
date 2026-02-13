@@ -239,59 +239,68 @@
   }
 }
 
-/* Loading bar */
-.loading-bar-container {
-  width: 200px;
-  height: 2px;
-  background: rgba(153, 0, 0, 0.2);
-  border-radius: 2px;
-  overflow: hidden;
+/* Enter button */
+.enter-button {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #990000, #cc2200);
+  border: 2px solid #990000;
+  padding: 0.875rem 2.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
   position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(153, 0, 0, 0.4);
 }
 
-.loading-bar {
-  height: 100%;
-  background: linear-gradient(90deg, #990000, #ff4400, #990000);
-  background-size: 200% 100%;
-  animation: loading-progress 2.5s ease-out forwards;
-  box-shadow: 0 0 10px rgba(153, 0, 0, 0.5);
-}
-
-.loading-bar::after {
+.enter-button::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  animation: shimmer 1.5s linear infinite;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
 }
 
-@keyframes loading-progress {
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 100%;
-  }
+.enter-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(153, 0, 0, 0.6);
+  background: linear-gradient(135deg, #cc2200, #ff4400);
+  border-color: #cc2200;
 }
 
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+.enter-button:hover::before {
+  left: 100%;
 }
 
-/* Loading percentage */
-.loading-percent {
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.75rem;
-  color: #990000;
-  margin-top: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
+.enter-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 15px rgba(153, 0, 0, 0.5);
+}
+
+.enter-button:focus {
+  outline: 2px solid #ff4400;
+  outline-offset: 4px;
+}
+
+/* View Transitions API support */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 999999;
 }

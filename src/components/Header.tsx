@@ -24,14 +24,14 @@ const menuItems = [
 ];
 
 const socialItems = [
-  { label: "LinkedIn", link: "https://linkedin.com" },
-  { label: "Instagram", link: "https://instagram.com" },
-  { label: "Discord", link: "https://discord.com" },
+  { label: "LinkedIn", link: "https://www.linkedin.com/company/hackshastra" },
+  { label: "Instagram", link: "https://www.instagram.com/hackshastra.srmap/" },
+  { label: "Discord", link: "https://discord.gg/hackshastra" },
 ];
 
 const Header = () => {
   return (
-    <header className="fixed top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 z-50 w-full bg-background/95 backdrop-blur-lg border-b border-border/50 shadow-lg">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex h-16 items-center justify-between">
           <Logo size="sm" />

@@ -15,15 +15,18 @@ interface VariableProximityProps {
 }
 
 function useAnimationFrame(callback: () => void) {
+  const callbackRef = useRef(callback);
+  callbackRef.current = callback;
+
   useEffect(() => {
     let frameId: number;
     const loop = () => {
-      callback();
+      callbackRef.current();
       frameId = requestAnimationFrame(loop);
     };
     frameId = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(frameId);
-  }, [callback]);
+  }, []);
 }
 
 function useMousePositionRef(containerRef: RefObject<HTMLElement | null>) {

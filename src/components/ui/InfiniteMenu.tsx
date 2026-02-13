@@ -420,6 +420,7 @@ class InfiniteGridMenu {
   #deltaTime = 0;
   #deltaFrames = 0;
   #frames = 0;
+  #rafId = 0;
   camera = {
     matrix: mat4.create(),
     near: 0.1,
@@ -479,7 +480,11 @@ class InfiniteGridMenu {
     this.#frames += this.#deltaFrames;
     this.animate(this.#deltaTime);
     this.render();
-    requestAnimationFrame(t => this.run(t));
+    this.#rafId = requestAnimationFrame(t => this.run(t));
+  }
+
+  destroy() {
+    cancelAnimationFrame(this.#rafId);
   }
 
   init(onInit: ((sk: InfiniteGridMenu) => void) | null) {
@@ -702,13 +707,18 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }: InfiniteMenuPr
     const handleResize = () => { if (sketch) sketch.resize(); };
     window.addEventListener('resize', handleResize);
     handleResize();
-    return () => { window.removeEventListener('resize', handleResize); };
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      sketch?.destroy();
+    };
   }, [items, scale]);
 
   const handleButtonClick = () => {
-    if (!activeItem?.link) return;
+    if (!activeItem?.link || activeItem.link === '#') return;
     if (activeItem.link.startsWith('http')) {
       window.open(activeItem.link, '_blank');
+    } else if (activeItem.link.startsWith('/')) {
+      window.location.href = activeItem.link;
     }
   };
 

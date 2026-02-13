@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Linkedin, Github, Globe, Instagram } from 'lucide-react';
 import TiltedCard from '@/components/ui/TiltedCard';
-import ClickEffect from '@/components/ClickEffect';
-import CustomCursor from '@/components/CustomCursor';
 
 interface TeamMember {
   name: string;
@@ -51,7 +49,7 @@ const coreLeadership: TeamMember[] = [
     name: "Venkata Ramana",
     role: "Tech Lead",
     specialty: "",
-    image: new URL('@/assets/WhatsApp Image 2026-01-22 at 6.47.25 AM.jpeg', import.meta.url).href,
+    image: new URL('@/assets/drive-download-20260213T143427Z-1-001/20260208_172130.jpg', import.meta.url).href,
     linkedin: "https://www.linkedin.com/in/venkata-ramana-komari-402058316/",
     instagram: "https://www.instagram.com/venkatsunny56/"
   },
@@ -99,8 +97,15 @@ const eventsTeam: TeamMember[] = [
     specialty: "2nd Year",
     year: "2nd year",
     image: new URL('@/assets/sneha - Sneha Kedari _ AP24110011417.jpeg', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/feed/",
+    linkedin: "https://www.linkedin.com/in/snehakedari",
     github: "https://github.com/snehakedari06"
+  },
+  {
+    name: "Tejas",
+    role: "Events Team",
+    specialty: "2nd Year",
+    year: "2nd year",
+    image: new URL('@/assets/WhatsApp Image 2026-01-29 at 11.15.56 PM.jpeg', import.meta.url).href
   },
   {
     name: "Kamran Akmal Shaik",
@@ -201,9 +206,6 @@ const designTeam: TeamMember[] = [
 export default function TeamPage() {
   return (
     <div className="bg-background text-foreground min-h-screen">
-      <CustomCursor />
-      <ClickEffect />
-
       {/* Back button */}
       <Link
         to="/"
@@ -235,8 +237,8 @@ export default function TeamPage() {
             <h2 className="text-foreground text-3xl md:text-4xl font-bold">Club Advisory</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 justify-items-center max-w-2xl mx-auto">
-            {clubAdvisory.map((member, index) => (
-              <div key={index} className="flex flex-col items-center">
+            {clubAdvisory.map((member) => (
+              <div key={member.name} className="flex flex-col items-center">
                 <TiltedCard
                   imageSrc={member.image}
                   altText={member.name}
@@ -296,8 +298,8 @@ export default function TeamPage() {
             <h2 className="text-foreground text-3xl md:text-4xl font-bold">Community Board</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 justify-items-center max-w-2xl mx-auto">
-            {leadership.map((member, index) => (
-              <div key={index} className="flex flex-col items-center">
+            {leadership.map((member) => (
+              <div key={member.name} className="flex flex-col items-center">
                 <TiltedCard
                   imageSrc={member.image}
                   altText={member.name}
@@ -357,8 +359,8 @@ export default function TeamPage() {
             <h2 className="text-foreground text-3xl md:text-4xl font-bold">Wings Leads</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
-            {coreLeadership.map((member, index) => (
-              <div key={index} className="flex flex-col items-center">
+            {coreLeadership.map((member) => (
+              <div key={member.name} className="flex flex-col items-center">
                 <TiltedCard
                   imageSrc={member.image}
                   altText={member.name}
@@ -418,8 +420,8 @@ export default function TeamPage() {
             <h2 className="text-foreground text-3xl md:text-4xl font-bold">Events Team</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {eventsTeam.map((member, index) => (
-              <div key={index} className="flex flex-col items-center">
+            {eventsTeam.map((member) => (
+              <div key={member.name} className="flex flex-col items-center">
                 <TiltedCard
                   imageSrc={member.image}
                   altText={member.name}
@@ -477,8 +479,8 @@ export default function TeamPage() {
             <h2 className="text-foreground text-3xl md:text-4xl font-bold">Design & Social Media Team</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {designTeam.map((member, index) => (
-              <div key={index} className="flex flex-col items-center">
+            {designTeam.map((member) => (
+              <div key={member.name} className="flex flex-col items-center">
                 <TiltedCard
                   imageSrc={member.image}
                   altText={member.name}

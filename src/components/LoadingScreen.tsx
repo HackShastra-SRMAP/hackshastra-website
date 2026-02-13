@@ -1,50 +1,72 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { flushSync } from 'react-dom';
 import './LoadingScreen.css';
 import logoImg from '@/assets/download.png';
 
 interface LoadingScreenProps {
-  minDuration?: number;
   onLoadingComplete?: () => void;
 }
 
-const LoadingScreen = ({ minDuration = 2500, onLoadingComplete }: LoadingScreenProps) => {
+const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
-  const [progress, setProgress] = useState(0);
 
-  useEffect(() => {
-    // Animate progress
-    const progressInterval = setInterval(() => {
-      setProgress(prev => {
-        if (prev >= 100) {
-          clearInterval(progressInterval);
-          return 100;
-        }
-        return prev + Math.random() * 15 + 5;
+  const handleEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // Get click position
+    const x = e.clientX;
+    const y = e.clientY;
+
+    // Calculate radius to reach farthest corner
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    // Check if View Transitions API is supported
+    if ('startViewTransition' in document) {
+      // Start the transition
+      const transition = (document as any).startViewTransition(() => {
+        flushSync(() => {
+          setFadeOut(true);
+        });
       });
-    }, 200);
 
-    const timer = setTimeout(() => {
-      setProgress(100);
+      // Animate the clip-path
+      transition.ready.then(() => {
+        document.documentElement.animate(
+          {
+            clipPath: [
+              `circle(0px at ${x}px ${y}px)`,
+              `circle(${endRadius}px at ${x}px ${y}px)`
+            ]
+          },
+          {
+            duration: 800,
+            easing: 'ease-in-out',
+            pseudoElement: '::view-transition-new(root)'
+          }
+        );
+      });
+
+      // Complete after animation
       setTimeout(() => {
-        setFadeOut(true);
-        setTimeout(() => {
-          setIsLoading(false);
-          onLoadingComplete?.();
-        }, 800);
-      }, 300);
-    }, minDuration);
-
-    return () => {
-      clearTimeout(timer);
-      clearInterval(progressInterval);
-    };
-  }, [minDuration, onLoadingComplete]);
+        setIsLoading(false);
+        onLoadingComplete?.();
+      }, 800);
+    } else {
+      // Fallback for browsers without View Transitions API
+      setFadeOut(true);
+      setTimeout(() => {
+        setIsLoading(false);
+        onLoadingComplete?.();
+      }, 800);
+    }
+  };
 
   if (!isLoading) return null;
 
   return (
-    <div className={`loading-screen ${fadeOut ? 'fade-out' : ''}`}>
+    <div className={`loading-screen ${fadeOut ? 'fade-out' : ''}`} role="alert" aria-live="assertive" aria-busy={!fadeOut}>
       <div className="loading-content">
         <div className="logo-container">
           <div className="fire-glow"></div>
@@ -65,10 +87,13 @@ const LoadingScreen = ({ minDuration = 2500, onLoadingComplete }: LoadingScreenP
           <h1 className="loading-title">HackShastra SRM-AP</h1>
         </div>
 
-        <div className="loading-bar-container">
-          <div className="loading-bar" style={{ width: `${Math.min(progress, 100)}%` }}></div>
-        </div>
-        <p className="loading-percent">{Math.min(Math.round(progress), 100)}%</p>
+        <button 
+          onClick={handleEnter}
+          className="enter-button"
+          aria-label="Enter HackShastra website"
+        >
+          Enter HackShastra
+        </button>
       </div>
     </div>
   );

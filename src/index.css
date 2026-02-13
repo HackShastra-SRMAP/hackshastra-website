@@ -140,3 +140,8 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb:hover {
   background: #444;
 }
+
+/* Custom image positioning for team members */
+.tilted-card-img[src*="20260208_172130"] {
+  object-position: center 20% !important;
+}

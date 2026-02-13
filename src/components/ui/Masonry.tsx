@@ -23,14 +23,21 @@ interface MasonryProps {
 }
 
 const useMedia = (queries: string[], values: number[], defaultValue: number) => {
-  const get = () => values[queries.findIndex(q => matchMedia(q).matches)] ?? defaultValue;
-  const [value, setValue] = useState(get);
+  const valuesRef = useRef(values);
+  const defaultRef = useRef(defaultValue);
+  valuesRef.current = values;
+  defaultRef.current = defaultValue;
+
+  const [value, setValue] = useState(() => values[queries.findIndex(q => matchMedia(q).matches)] ?? defaultValue);
 
   useEffect(() => {
-    const handler = () => setValue(get);
+    const handler = () => {
+      const match = valuesRef.current[queries.findIndex(q => matchMedia(q).matches)] ?? defaultRef.current;
+      setValue(match);
+    };
+    handler();
     queries.forEach(q => matchMedia(q).addEventListener('change', handler));
     return () => queries.forEach(q => matchMedia(q).removeEventListener('change', handler));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queries]);
 
   return value;

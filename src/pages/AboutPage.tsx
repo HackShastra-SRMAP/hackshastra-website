@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Users, TrendingUp, Award, Rocket, Code, Lightbulb, Target, Zap, Globe } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import ClickEffect from '@/components/ClickEffect';
-import CustomCursor from '@/components/CustomCursor';
 
 const departments = [
   { name: "Events & Hackathons", icon: Rocket },
@@ -49,9 +47,6 @@ const pastImpact = [
 export default function AboutPage() {
   return (
     <div className="bg-background text-foreground min-h-screen">
-      <CustomCursor />
-      <ClickEffect />
-
       {/* Back button */}
       <Link
         to="/"

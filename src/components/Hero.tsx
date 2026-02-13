@@ -7,10 +7,11 @@ import GooeyButton from "@/components/ui/GooeyButton";
 
 interface HeroProps {
   loadingComplete?: boolean;
+  userInteracted?: boolean;
 }
 
-const Hero = ({ loadingComplete = false }: HeroProps) => {
-  const [isMuted, setIsMuted] = useState(false);
+const Hero = ({ loadingComplete = false, userInteracted = false }: HeroProps) => {
+  const [isMuted, setIsMuted] = useState(true);
   const [hasPlayedOnce, setHasPlayedOnce] = useState(() => {
     return sessionStorage.getItem('videoPlayed') === 'true';
   });
@@ -23,23 +24,30 @@ const Hero = ({ loadingComplete = false }: HeroProps) => {
     const video = videoRef.current;
     if (!video) return;
     
-    // Start muted to ensure autoplay works
-    video.muted = true;
-    setIsMuted(true);
+    // If user interacted (clicked Enter button), try to play with sound
+    if (userInteracted) {
+      video.muted = false;
+      setIsMuted(false);
+    } else {
+      // Otherwise start muted
+      video.muted = true;
+      setIsMuted(true);
+    }
     
-    // Play the video (muted autoplay is allowed by all browsers)
+    // Play the video
     const playPromise = video.play();
     
     if (playPromise !== undefined) {
       playPromise.then(() => {
-        console.log('Video playing (muted)');
-        // After video starts, try to unmute
-        setTimeout(() => {
-          video.muted = false;
-          setIsMuted(false);
-        }, 100);
+        // Video started playing
       }).catch((err) => {
         console.log('Autoplay failed:', err);
+        // If unmuted autoplay fails, try muted
+        if (!video.muted) {
+          video.muted = true;
+          setIsMuted(true);
+          video.play().catch(e => console.log('Muted autoplay also failed:', e));
+        }
       });
     }
 
@@ -56,7 +64,7 @@ const Hero = ({ loadingComplete = false }: HeroProps) => {
     return () => {
       video.removeEventListener('ended', handleEnded);
     };
-  }, [loadingComplete, hasPlayedOnce]);
+  }, [loadingComplete, hasPlayedOnce, userInteracted]);
 
   const toggleMute = () => {
     if (videoRef.current) {
@@ -67,7 +75,7 @@ const Hero = ({ loadingComplete = false }: HeroProps) => {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col pt-16">
+    <section className="relative min-h-screen flex flex-col">
       {/* Video Banner */}
       <div className="relative h-[50vh] md:h-[60vh] w-full overflow-hidden">
         <video

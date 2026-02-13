@@ -1,4 +1,5 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './GooeyNav.css';
 
 interface GooeyNavItem {
@@ -34,6 +35,7 @@ const GooeyNav = ({
   const filterRef = useRef<HTMLSpanElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
   const [activeIndex, setActiveIndex] = useState(initialActiveIndex);
+  const navigate = useNavigate();
 
   const noise = (n = 1) => n / 2 - Math.random() * n;
 
@@ -96,7 +98,7 @@ const GooeyNav = ({
     }
   };
 
-  const updateEffectPosition = (element: HTMLElement) => {
+  const updateEffectPosition = useCallback((element: HTMLElement) => {
     if (!containerRef.current || !filterRef.current || !textRef.current) return;
     const containerRect = containerRef.current.getBoundingClientRect();
     const pos = element.getBoundingClientRect();
@@ -109,7 +111,7 @@ const GooeyNav = ({
     Object.assign(filterRef.current.style, styles);
     Object.assign(textRef.current.style, styles);
     textRef.current.innerText = element.innerText;
-  };
+  }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLLIElement>, index: number, href: string) => {
     e.preventDefault();
@@ -138,8 +140,7 @@ const GooeyNav = ({
     
     // Handle navigation - check if it's a route or anchor
     if (href.startsWith('/')) {
-      // It's a route - use window.location for navigation
-      window.location.href = href;
+      navigate(href);
     } else {
       // Smooth scroll to section
       const targetId = href.replace('#', '');
@@ -177,7 +178,7 @@ const GooeyNav = ({
 
     resizeObserver.observe(containerRef.current);
     return () => resizeObserver.disconnect();
-  }, [activeIndex]);
+  }, [activeIndex, updateEffectPosition]);
 
   return (
     <div className="gooey-nav-container" ref={containerRef}>

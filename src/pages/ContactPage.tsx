@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Mail, MapPin, Phone, Send, Instagram, Linkedin, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
-import ClickEffect from '@/components/ClickEffect';
-import CustomCursor from '@/components/CustomCursor';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -14,9 +12,8 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    alert('Message sent! We\'ll get back to you soon.');
+    const mailtoLink = `mailto:hssc2025@srmap.edu.in?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
+    window.location.href = mailtoLink;
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
@@ -26,9 +23,6 @@ export default function ContactPage() {
 
   return (
     <div className="bg-background min-h-screen w-full relative">
-      <CustomCursor />
-      <ClickEffect />
-      
       <Link
         to="/"
         className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-black/50 backdrop-blur-sm rounded-full border border-border hover:border-primary transition-colors text-white"
@@ -82,7 +76,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Phone</h3>
-                      <p className="text-muted-foreground">+91 XXXXX XXXXX</p>
+                      <p className="text-muted-foreground">Available on request</p>
                     </div>
                   </div>
                 </div>
@@ -92,15 +86,15 @@ export default function ContactPage() {
               <div>
                 <h3 className="font-semibold mb-4">Follow Us</h3>
                 <div className="flex gap-4">
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" 
+                  <a href="https://www.instagram.com/hackshastra.srmap/" target="_blank" rel="noopener noreferrer" 
                      className="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors">
                     <Instagram className="w-5 h-5" />
                   </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                  <a href="https://www.linkedin.com/company/hackshastra" target="_blank" rel="noopener noreferrer"
                      className="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors">
                     <Linkedin className="w-5 h-5" />
                   </a>
-                  <a href="https://discord.com" target="_blank" rel="noopener noreferrer"
+                  <a href="https://discord.gg/hackshastra" target="_blank" rel="noopener noreferrer"
                      className="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors">
                     <MessageCircle className="w-5 h-5" />
                   </a>

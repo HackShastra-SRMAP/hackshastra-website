@@ -27,7 +27,7 @@ const features = [
 
 const Mission = () => {
   return (
-    <section className="py-24 bg-card border-y border-border">
+    <section className="py-24 bg-background border-y border-border">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5 flex flex-col gap-6">
@@ -49,7 +49,7 @@ const Mission = () => {
             <Separator className="my-2" />
             <div className="grid sm:grid-cols-2 gap-6">
               {features.map((feature) => (
-                <Card key={feature.title} className="border-border/50 bg-background/50 hover:shadow-md transition-shadow">
+                <Card key={feature.title} className="border-border/50 bg-card hover:shadow-md transition-shadow">
                   <CardContent className="p-6 flex flex-col gap-3">
                     <feature.icon className="h-8 w-8 text-primary" />
                     <h3 className="text-foreground font-bold text-lg">{feature.title}</h3>
