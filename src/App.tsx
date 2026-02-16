@@ -77,8 +77,8 @@ function HomePage() {
       <Header />
       <main>
         <Hero loadingComplete={loadingComplete} userInteracted={userInteracted} />
-        <Mission />
         <Events />
+        <Mission />
       </main>
       <Footer />
     </div>
@@ -88,22 +88,19 @@ function HomePage() {
 function App() {
   return (
     <BrowserRouter>
-      <div style={{ color: 'white', padding: 40 }}>
-        <h1>Test render OK</h1>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/gallery" element={<GalleryPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/join" element={<JoinPage />} />
-            <Route path="/team" element={<TeamPage />} />
-            <Route path="/texpo-register" element={<TexpoRegisterPage />} />
-            <Route path="/events" element={<EventsPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </Layout>
-      </div>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/join" element={<JoinPage />} />
+          <Route path="/team" element={<TeamPage />} />
+          <Route path="/texpo-register" element={<TexpoRegisterPage />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   )
 }

@@ -6,7 +6,7 @@ import banner3 from '@/assets/698ce5b1d31b8_texpo-26.jpg.jpeg';
 
 export default function TechExpoCard() {
   return (
-    <div className="grid md:grid-cols-2 gap-8">
+    <div className="grid md:grid-cols-2 gap-6 md:gap-8">
       {/* Event Image/Visual */}
       <div>
         <ElectricBorder
@@ -37,7 +37,7 @@ export default function TechExpoCard() {
                 e.currentTarget.style.setProperty('--mouse-y', `${y}%`);
               }}
             />
-            <Badge className="absolute top-4 left-4 z-10 uppercase tracking-widest text-xs font-bold bg-primary text-white animate-pulse">
+            <Badge className="absolute top-3 left-3 md:top-4 md:left-4 z-10 uppercase tracking-widest text-[10px] md:text-xs font-bold bg-primary text-white animate-pulse">
               Registrations Live
             </Badge>
           </div>
@@ -47,46 +47,46 @@ export default function TechExpoCard() {
       {/* Event Details */}
       <div className="flex flex-col justify-between">
         <div>
-          <h3 className="text-2xl font-bold text-foreground mb-4">TEXPO'26 - Student Innovation & Industry Technology Expo</h3>
-          <p className="text-muted-foreground mb-6 leading-relaxed">
+          <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3 md:mb-4">TEXPO'26 - Student Innovation & Industry Technology Expo</h3>
+          <p className="text-muted-foreground text-sm md:text-base mb-4 md:mb-6 leading-relaxed">
             Official Launch Event of HackShastra SRM–AP Chapter. Registrations are now live! 
             Showcase your innovation in Software, Hardware, or Open Innovation categories. 
             Total prizes worth ₹30,000 up for grabs!
           </p>
 
-          <div className="space-y-4 mb-6">
-            <div className="flex items-start gap-3">
-              <Calendar className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+          <div className="space-y-3 md:space-y-4 mb-4 md:mb-6">
+            <div className="flex items-start gap-2 md:gap-3">
+              <Calendar className="h-4 w-4 md:h-5 md:w-5 text-primary mt-1 flex-shrink-0" />
               <div>
-                <p className="font-bold text-foreground">Registration Deadline</p>
-                <p className="text-sm text-primary font-bold">Feb 15, 2026 - 11:59 PM IST</p>
+                <p className="font-bold text-foreground text-sm md:text-base">Registration Deadline</p>
+                <p className="text-xs md:text-sm text-primary font-bold">Feb 15, 2026 - 11:59 PM IST</p>
               </div>
             </div>
-            <div className="flex items-start gap-3">
-              <Calendar className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+            <div className="flex items-start gap-2 md:gap-3">
+              <Calendar className="h-4 w-4 md:h-5 md:w-5 text-primary mt-1 flex-shrink-0" />
               <div>
-                <p className="font-bold text-foreground">Online Submission Round</p>
-                <p className="text-sm text-muted-foreground">Feb 09 - Feb 18, 2026</p>
+                <p className="font-bold text-foreground text-sm md:text-base">Online Submission Round</p>
+                <p className="text-xs md:text-sm text-muted-foreground">Feb 09 - Feb 18, 2026</p>
               </div>
             </div>
-            <div className="flex items-start gap-3">
-              <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+            <div className="flex items-start gap-2 md:gap-3">
+              <MapPin className="h-4 w-4 md:h-5 md:w-5 text-primary mt-1 flex-shrink-0" />
               <div>
-                <p className="font-bold text-foreground">Venue</p>
-                <p className="text-sm text-muted-foreground">SRM University AP, Guntur, Andhra Pradesh</p>
+                <p className="font-bold text-foreground text-sm md:text-base">Venue</p>
+                <p className="text-xs md:text-sm text-muted-foreground">SRM University AP, Guntur, Andhra Pradesh</p>
               </div>
             </div>
-            <div className="flex items-start gap-3">
-              <div className="h-5 w-5 text-primary mt-1 flex-shrink-0 flex items-center justify-center font-bold">₹</div>
+            <div className="flex items-start gap-2 md:gap-3">
+              <div className="h-4 w-4 md:h-5 md:w-5 text-primary mt-1 flex-shrink-0 flex items-center justify-center font-bold text-sm md:text-base">₹</div>
               <div>
-                <p className="font-bold text-foreground">Prize Pool</p>
-                <p className="text-sm text-muted-foreground">₹30,000 (₹10,000 each for Software, Hardware & Open Innovation)</p>
+                <p className="font-bold text-foreground text-sm md:text-base">Prize Pool</p>
+                <p className="text-xs md:text-sm text-muted-foreground">₹30,000 (₹10,000 each for Software, Hardware & Open Innovation)</p>
               </div>
             </div>
           </div>
         </div>
 
-        <Link to="/texpo-register" className="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 animate-pulse">
+        <Link to="/texpo-register" className="w-full bg-primary text-white font-bold py-2.5 md:py-3 px-4 md:px-6 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 text-sm md:text-base animate-pulse">
           Register Now on Unstop <ArrowRight className="h-4 w-4" />
         </Link>
       </div>

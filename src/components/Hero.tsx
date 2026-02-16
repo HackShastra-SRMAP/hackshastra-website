@@ -77,7 +77,7 @@ const Hero = ({ loadingComplete = false, userInteracted = false }: HeroProps) =>
   return (
     <section className="relative min-h-screen flex flex-col">
       {/* Video Banner */}
-      <div className="relative h-[50vh] md:h-[60vh] w-full overflow-hidden">
+      <div className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] w-full overflow-hidden">
         <video
           ref={videoRef}
           muted={isMuted}
@@ -93,20 +93,20 @@ const Hero = ({ loadingComplete = false, userInteracted = false }: HeroProps) =>
         {/* Sound toggle button */}
         <button
           onClick={toggleMute}
-          className="absolute bottom-4 right-4 z-20 p-3 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors backdrop-blur-sm"
+          className="absolute bottom-3 right-3 md:bottom-4 md:right-4 z-20 p-2 md:p-3 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors backdrop-blur-sm"
           aria-label={isMuted ? "Unmute video" : "Mute video"}
         >
-          {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+          {isMuted ? <VolumeX className="h-4 w-4 md:h-5 md:w-5" /> : <Volume2 className="h-4 w-4 md:h-5 md:w-5" />}
         </button>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex-1 -mt-24 md:-mt-32">
-        <div className="max-w-6xl mx-auto px-6 w-full">
+      <div className="relative z-10 flex-1 -mt-16 sm:-mt-20 md:-mt-32">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full">
           {/* Profile section */}
-          <div className="flex flex-col md:flex-row md:items-end gap-6 mb-12">
+          <div className="flex flex-col md:flex-row md:items-end gap-4 md:gap-6 mb-8 md:mb-12">
             {/* Logo */}
-            <div className="w-28 h-28 md:w-40 md:h-40 rounded-2xl overflow-hidden border-4 border-background shadow-2xl flex-shrink-0">
+            <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-40 md:h-40 rounded-xl md:rounded-2xl overflow-hidden border-4 border-background shadow-2xl flex-shrink-0">
               <img 
                 src={logoPng} 
                 alt="HackShastra Logo" 
@@ -116,7 +116,7 @@ const Hero = ({ loadingComplete = false, userInteracted = false }: HeroProps) =>
 
             {/* Info */}
             <div className="flex-1 pb-2" ref={titleContainerRef}>
-              <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-2">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tight mb-2">
                 <VariableProximity
                   label="HackShastra SRM-AP"
                   className="fire-text"
@@ -127,10 +127,10 @@ const Hero = ({ loadingComplete = false, userInteracted = false }: HeroProps) =>
                   falloff="gaussian"
                 />
               </h1>
-              <p className="text-muted-foreground text-lg mb-6">
+              <p className="text-muted-foreground text-base md:text-lg mb-4 md:mb-6">
                 Student Chapter
               </p>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2 md:gap-3">
                 <GooeyButton href="/join">
                   Join Us
                   <ArrowRight className="h-4 w-4" />
@@ -144,8 +144,8 @@ const Hero = ({ loadingComplete = false, userInteracted = false }: HeroProps) =>
           </div>
 
           {/* Description */}
-          <div className="max-w-3xl mb-16">
-            <p className="text-muted-foreground text-lg leading-relaxed">
+          <div className="max-w-3xl mb-12 md:mb-16">
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
               We are a community of students driven by curiosity and a shared passion for technology. 
               At HackShastra SRM-AP, we merge ancient wisdom with cutting-edge innovation, exploring fields like 
               AI, cybersecurity, web development, and system design. Where tradition meets technology, 

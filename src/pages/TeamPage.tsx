@@ -60,6 +60,12 @@ const coreLeadership: TeamMember[] = [
     image: new URL('@/assets/IMG_20251211_140219833_HDR - Utkarsh Awasthi _ AP24110020047.jpg', import.meta.url).href,
     linkedin: "https://www.linkedin.com/in/utkarsh-awasthi-276a92367",
     github: "https://github.com/Awasthiutk564"
+  },
+  {
+    name: "Tejas",
+    role: "General Secretary",
+    specialty: "",
+    image: new URL('@/assets/WhatsApp Image 2026-01-29 at 11.15.56 PM.jpeg', import.meta.url).href
   }
 ];
 
@@ -99,13 +105,6 @@ const eventsTeam: TeamMember[] = [
     image: new URL('@/assets/sneha - Sneha Kedari _ AP24110011417.jpeg', import.meta.url).href,
     linkedin: "https://www.linkedin.com/in/snehakedari",
     github: "https://github.com/snehakedari06"
-  },
-  {
-    name: "Tejas",
-    role: "Events Team",
-    specialty: "2nd Year",
-    year: "2nd year",
-    image: new URL('@/assets/WhatsApp Image 2026-01-29 at 11.15.56 PM.jpeg', import.meta.url).href
   },
   {
     name: "Kamran Akmal Shaik",

@@ -26,29 +26,29 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-background py-20 px-6 border-t border-border">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
-        <div className="md:col-span-1 flex flex-col gap-6">
+    <footer className="bg-background py-12 md:py-20 px-4 sm:px-6 border-t border-border">
+      <div className="max-w-7xl mx-auto grid sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="md:col-span-1 flex flex-col gap-4 md:gap-6">
           <Logo size="sm" />
-          <p className="text-muted-foreground text-sm leading-relaxed">
+          <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
             The Student Chapter of SRM University-AP. Focus on innovation, discipline, and technical rigor.
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-3 md:gap-4">
             {socialLinks.map((social, index) => (
               <a
                 key={index}
                 className="text-foreground/60 hover:text-primary transition-colors"
                 href={social.href}
               >
-                <social.icon className="h-5 w-5" />
+                <social.icon className="h-4 w-4 md:h-5 md:w-5" />
               </a>
             ))}
           </div>
         </div>
 
-        <div className="flex flex-col gap-6">
-          <h4 className="text-foreground font-bold text-sm uppercase tracking-widest">Navigation</h4>
-          <ul className="flex flex-col gap-4 text-muted-foreground text-sm font-medium">
+        <div className="flex flex-col gap-4 md:gap-6">
+          <h4 className="text-foreground font-bold text-xs md:text-sm uppercase tracking-widest">Navigation</h4>
+          <ul className="flex flex-col gap-3 md:gap-4 text-muted-foreground text-xs md:text-sm font-medium">
             {footerLinks.navigation.map((link) => (
               <li key={link.label}>
                 <Link className="hover:text-primary transition-colors" to={link.href}>
@@ -59,9 +59,9 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="flex flex-col gap-6">
-          <h4 className="text-foreground font-bold text-sm uppercase tracking-widest">Community</h4>
-          <ul className="flex flex-col gap-4 text-muted-foreground text-sm font-medium">
+        <div className="flex flex-col gap-4 md:gap-6">
+          <h4 className="text-foreground font-bold text-xs md:text-sm uppercase tracking-widest">Community</h4>
+          <ul className="flex flex-col gap-3 md:gap-4 text-muted-foreground text-xs md:text-sm font-medium">
             {footerLinks.community.map((link) => (
               <li key={link.label}>
                 <Link className="hover:text-primary transition-colors" to={link.href}>
@@ -72,10 +72,10 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="flex flex-col gap-6">
-          <h4 className="text-foreground font-bold text-sm uppercase tracking-widest">Location</h4>
-          <div className="flex items-start gap-2 text-muted-foreground text-sm leading-relaxed">
-            <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
+        <div className="flex flex-col gap-4 md:gap-6">
+          <h4 className="text-foreground font-bold text-xs md:text-sm uppercase tracking-widest">Location</h4>
+          <div className="flex items-start gap-2 text-muted-foreground text-xs md:text-sm leading-relaxed">
+            <MapPin className="h-3 w-3 md:h-4 md:w-4 mt-0.5 shrink-0" />
             <p>
               SRM University-AP,<br />
               Neerukonda, Mangalagiri Mandal,<br />
@@ -83,7 +83,7 @@ const Footer = () => {
             </p>
           </div>
           <div
-            className="w-full h-24 bg-muted rounded-lg flex items-center justify-center overflow-hidden"
+            className="w-full h-20 md:h-24 bg-muted rounded-lg flex items-center justify-center overflow-hidden"
             role="img"
             aria-label="Map showing SRM University-AP campus location"
           >
@@ -95,10 +95,10 @@ const Footer = () => {
         </div>
       </div>
 
-      <Separator className="max-w-7xl mx-auto mt-16 mb-10" />
+      <Separator className="max-w-7xl mx-auto mt-12 md:mt-16 mb-8 md:mb-10" />
 
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-        <p className="text-muted-foreground text-[10px] font-bold tracking-widest uppercase">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
+        <p className="text-muted-foreground text-[9px] md:text-[10px] font-bold tracking-widest uppercase text-center md:text-left">
           &copy; {new Date().getFullYear()} HACKSHASTRA SRM-AP. ALL RIGHTS RESERVED.
         </p>
         <Logo size="sm" showText={false} />
