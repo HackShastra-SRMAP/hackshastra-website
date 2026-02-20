@@ -28,6 +28,12 @@ const leadership: TeamMember[] = [
     role: "Co-Leader",
     specialty: "2nd Year",
     image: new URL('@/assets/WhatsApp Image 2026-01-21 at 11.30.09 PM.jpeg', import.meta.url).href
+  },
+  {
+    name: "Tejas",
+    role: "General Secretary",
+    specialty: "",
+    image: new URL('@/assets/WhatsApp Image 2026-01-29 at 11.15.56 PM.jpeg', import.meta.url).href
   }
 ];
 
@@ -60,12 +66,6 @@ const coreLeadership: TeamMember[] = [
     image: new URL('@/assets/IMG_20251211_140219833_HDR - Utkarsh Awasthi _ AP24110020047.jpg', import.meta.url).href,
     linkedin: "https://www.linkedin.com/in/utkarsh-awasthi-276a92367",
     github: "https://github.com/Awasthiutk564"
-  },
-  {
-    name: "Tejas",
-    role: "General Secretary",
-    specialty: "",
-    image: new URL('@/assets/WhatsApp Image 2026-01-29 at 11.15.56 PM.jpeg', import.meta.url).href
   }
 ];
 
@@ -296,7 +296,7 @@ export default function TeamPage() {
             <p className="text-primary text-sm font-black tracking-[0.3em] uppercase">The Leaders</p>
             <h2 className="text-foreground text-3xl md:text-4xl font-bold">Community Board</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 justify-items-center max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-4xl mx-auto">
             {leadership.map((member) => (
               <div key={member.name} className="flex flex-col items-center">
                 <TiltedCard
