@@ -59,7 +59,7 @@ export default function TechExpoCard() {
               <Calendar className="h-4 w-4 md:h-5 md:w-5 text-primary mt-1 flex-shrink-0" />
               <div>
                 <p className="font-bold text-foreground text-sm md:text-base">Registration Deadline</p>
-                <p className="text-xs md:text-sm text-primary font-bold">Feb 15, 2026 - 11:59 PM IST</p>
+                <p className="text-xs md:text-sm text-primary font-bold">Feb 21, 2026 - 11:59 PM IST</p>
               </div>
             </div>
             <div className="flex items-start gap-2 md:gap-3">
