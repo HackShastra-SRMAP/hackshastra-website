@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, MapPin, Calendar } from "lucide-react";
-import { Link } from "react-router-dom";
+import { MapPin, Calendar } from "lucide-react";
+
 import ElectricBorder from "@/components/ui/ElectricBorder";
 import banner3 from '@/assets/698ce5b1d31b8_texpo-26.jpg.jpeg';
 
@@ -86,9 +86,7 @@ export default function TechExpoCard() {
           </div>
         </div>
 
-        <Link to="/texpo-register" className="w-full bg-primary text-white font-bold py-2.5 md:py-3 px-4 md:px-6 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 text-sm md:text-base animate-pulse">
-          Register Now on Unstop <ArrowRight className="h-4 w-4" />
-        </Link>
+        
       </div>
     </div>
   );
