@@ -11,7 +11,7 @@ interface HeroProps {
 }
 
 const CyclingTagline = () => {
-  const words = ["Build.", "Hack.", "Innovate.", "Create.", "Code."];
+  const words = ["Build.", "Code.", "Create.", "Debug.", "Innovate."];
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
 
