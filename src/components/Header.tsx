@@ -1,7 +1,6 @@
 import Logo from "./Logo";
 import GooeyNav from "@/components/ui/GooeyNav";
 import StaggeredMenu from "@/components/ui/StaggeredMenu";
-import GooeyButton from "@/components/ui/GooeyButton";
 import logoPng from '@/assets/download.png';
 
 const navLinks = [
@@ -50,27 +49,21 @@ const Header = () => {
             />
           </div>
 
-          <div className="flex items-center gap-4">
-            <div className="hidden md:block">
-              <GooeyButton href="/join">Join Us</GooeyButton>
-            </div>
-
-            {/* Mobile Menu - StaggeredMenu */}
-            <div className="md:hidden">
-              <StaggeredMenu
-                position="right"
-                items={menuItems}
-                socialItems={socialItems}
-                displaySocials={true}
-                displayItemNumbering={true}
-                menuButtonColor="#fff"
-                openMenuButtonColor="#fff"
-                changeMenuColorOnOpen={true}
-                colors={['#990000', '#cc2200']}
-                logoUrl={logoPng}
-                accentColor="#990000"
-              />
-            </div>
+          {/* Mobile Menu - StaggeredMenu */}
+          <div className="md:hidden">
+            <StaggeredMenu
+              position="right"
+              items={menuItems}
+              socialItems={socialItems}
+              displaySocials={true}
+              displayItemNumbering={true}
+              menuButtonColor="#fff"
+              openMenuButtonColor="#fff"
+              changeMenuColorOnOpen={true}
+              colors={['#990000', '#cc2200']}
+              logoUrl={logoPng}
+              accentColor="#990000"
+            />
           </div>
         </div>
       </div>
