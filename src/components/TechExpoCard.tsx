@@ -1,95 +1,199 @@
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight, MapPin, Calendar } from "lucide-react";
-import { Link } from "react-router-dom";
-import ElectricBorder from "@/components/ui/ElectricBorder";
-import banner3 from '@/assets/698ce5b1d31b8_texpo-26.jpg.jpeg';
+import { useEffect, useRef, useState } from 'react';
+import { Calendar, MapPin, Trophy, ExternalLink, Clock } from 'lucide-react';
 
-export default function TechExpoCard() {
+type Props = {
+  title: string;
+  subtitle: string;
+  image: string;
+  date?: string;
+  venue?: string;
+  prize?: string;
+  registerLink?: string;
+  registerLabel?: string;
+  completed?: boolean;
+  comingSoon?: boolean;
+  featuredLabel?: string;
+  extraDates?: { label: string; value: string; highlight?: boolean }[];
+};
+
+const TechExpoCard = ({
+  title,
+  subtitle,
+  image,
+  date,
+  venue,
+  prize,
+  registerLink,
+  registerLabel = 'Register Now',
+  completed,
+  comingSoon,
+  featuredLabel,
+  extraDates,
+}: Props) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.1 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-      {/* Event Image/Visual */}
-      <div>
-        <ElectricBorder
-          color="#DC143C"
-          speed={1}
-          chaos={0.12}
-          borderRadius={12}
-          style={{ borderRadius: 12 }}
-        >
-          <div className="relative w-full aspect-[16/10] md:aspect-[16/9] rounded-xl overflow-hidden border border-border bg-black group">
-            <img 
-              src={banner3} 
-              alt="TECHEXPO Banner" 
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover"
+    <div
+      ref={ref}
+      className="group"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0px)' : 'translateY(50px)',
+        transition: 'opacity 0.7s ease, transform 0.7s ease',
+      }}
+    >
+      <svg width="0" height="0" style={{ position: 'absolute' }}>
+        <defs>
+          <filter id="jagged-border">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.025"
+              numOctaves="3"
+              seed="2"
+              result="noise"
+            >
+              <animate
+                attributeName="baseFrequency"
+                values="0.02;0.035;0.02"
+                dur="6s"
+                repeatCount="indefinite"
+              />
+            </feTurbulence>
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="noise"
+              scale="6"
+              xChannelSelector="R"
+              yChannelSelector="G"
             />
-            {/* Spotlight mask effect - only on desktop */}
-            <div 
-              className="hidden md:block absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-              style={{
-                background: 'radial-gradient(circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%), transparent 0%, rgba(0, 0, 0, 0.7) 100%)'
-              }}
-              onMouseMove={(e) => {
-                const rect = e.currentTarget.getBoundingClientRect();
-                const x = ((e.clientX - rect.left) / rect.width) * 100;
-                const y = ((e.clientY - rect.top) / rect.height) * 100;
-                e.currentTarget.style.setProperty('--mouse-x', `${x}%`);
-                e.currentTarget.style.setProperty('--mouse-y', `${y}%`);
-              }}
+          </filter>
+        </defs>
+      </svg>
+
+      {featuredLabel && (
+        <p className="text-red-500 text-xs font-black uppercase tracking-[0.3em] mb-4">
+          {featuredLabel}
+        </p>
+      )}
+
+      <div
+        className={[
+          'flex flex-col md:flex-row gap-10 items-start',
+          completed ? 'opacity-70' : '',
+        ].join(' ')}
+      >
+        <div className="w-full md:w-1/2 shrink-0 relative">
+          <div
+            className="absolute inset-0 rounded-2xl z-10 pointer-events-none"
+            style={{
+              filter: 'url(#jagged-border)',
+              border: '2px solid #dc2626',
+              borderRadius: '16px',
+              boxShadow: '0 0 18px rgba(220,38,38,0.8), 0 0 50px rgba(220,38,38,0.35), inset 0 0 12px rgba(220,38,38,0.15)',
+            }}
+          />
+          <div
+            className="relative rounded-2xl overflow-hidden"
+            style={{ height: '420px' }}
+          >
+            <img
+              src={image}
+              alt={title}
+              className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
             />
-            <Badge className="absolute top-3 left-3 md:top-4 md:left-4 z-10 uppercase tracking-widest text-[10px] md:text-xs font-bold bg-primary text-white animate-pulse">
-              Registrations Live
-            </Badge>
-          </div>
-        </ElectricBorder>
-      </div>
-
-      {/* Event Details */}
-      <div className="flex flex-col justify-between">
-        <div>
-          <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3 md:mb-4">TEXPO'26 - Student Innovation & Industry Technology Expo</h3>
-          <p className="text-muted-foreground text-sm md:text-base mb-4 md:mb-6 leading-relaxed">
-            Official Launch Event of HackShastra SRM–AP Chapter. Registrations are now live! 
-            Showcase your innovation in Software, Hardware, or Open Innovation categories. 
-            Total prizes worth ₹30,000 up for grabs!
-          </p>
-
-          <div className="space-y-3 md:space-y-4 mb-4 md:mb-6">
-            <div className="flex items-start gap-2 md:gap-3">
-              <Calendar className="h-4 w-4 md:h-5 md:w-5 text-primary mt-1 flex-shrink-0" />
-              <div>
-                <p className="font-bold text-foreground text-sm md:text-base">Registration Deadline</p>
-                <p className="text-xs md:text-sm text-primary font-bold">Feb 21, 2026 - 11:59 PM IST</p>
+            {completed && (
+              <div className="absolute top-3 left-3 z-10 bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-widest">
+                Completed
               </div>
-            </div>
-            <div className="flex items-start gap-2 md:gap-3">
-              <Calendar className="h-4 w-4 md:h-5 md:w-5 text-primary mt-1 flex-shrink-0" />
-              <div>
-                <p className="font-bold text-foreground text-sm md:text-base">Online Submission Round</p>
-                <p className="text-xs md:text-sm text-muted-foreground">Feb 09 - Feb 18, 2026</p>
+            )}
+            {comingSoon && (
+              <div className="absolute top-3 left-3 z-10 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-widest animate-pulse">
+                Coming Soon
               </div>
-            </div>
-            <div className="flex items-start gap-2 md:gap-3">
-              <MapPin className="h-4 w-4 md:h-5 md:w-5 text-primary mt-1 flex-shrink-0" />
-              <div>
-                <p className="font-bold text-foreground text-sm md:text-base">Venue</p>
-                <p className="text-xs md:text-sm text-muted-foreground">SRM University AP, Guntur, Andhra Pradesh</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-2 md:gap-3">
-              <div className="h-4 w-4 md:h-5 md:w-5 text-primary mt-1 flex-shrink-0 flex items-center justify-center font-bold text-sm md:text-base">₹</div>
-              <div>
-                <p className="font-bold text-foreground text-sm md:text-base">Prize Pool</p>
-                <p className="text-xs md:text-sm text-muted-foreground">₹30,000 (₹10,000 each for Software, Hardware & Open Innovation)</p>
-              </div>
-            </div>
+            )}
           </div>
         </div>
 
-        <Link to="/texpo-register" className="w-full bg-primary text-white font-bold py-2.5 md:py-3 px-4 md:px-6 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 text-sm md:text-base animate-pulse">
-          Register Now on Unstop <ArrowRight className="h-4 w-4" />
-        </Link>
+        <div className="w-full md:w-1/2 flex flex-col justify-start gap-4 md:pt-2">
+          <h2 className="text-white text-2xl md:text-3xl font-black leading-tight tracking-tight">
+            {title}
+          </h2>
+          <p className="text-gray-400 text-sm leading-relaxed">{subtitle}</p>
+
+          <div className="flex flex-col gap-4 mt-1">
+            {extraDates?.map((d, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <Clock className="w-4 h-4 text-red-500 mt-0.5 shrink-0" />
+                <div>
+                  <p className="text-white text-sm font-bold">{d.label}</p>
+                  <p className={d.highlight ? 'text-red-400 text-sm font-medium' : 'text-gray-400 text-sm'}>
+                    {d.value}
+                  </p>
+                </div>
+              </div>
+            ))}
+            {date && (
+              <div className="flex items-start gap-3">
+                <Calendar className="w-4 h-4 text-red-500 mt-0.5 shrink-0" />
+                <div>
+                  <p className="text-white text-sm font-bold">Date</p>
+                  <p className="text-red-400 text-sm font-medium">{date}</p>
+                </div>
+              </div>
+            )}
+            {venue && (
+              <div className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-red-500 mt-0.5 shrink-0" />
+                <div>
+                  <p className="text-white text-sm font-bold">Venue</p>
+                  <p className="text-gray-400 text-sm">{venue}</p>
+                </div>
+              </div>
+            )}
+            {prize && (
+              <div className="flex items-start gap-3">
+                <Trophy className="w-4 h-4 text-red-500 mt-0.5 shrink-0" />
+                <div>
+                  <p className="text-white text-sm font-bold">Prize Pool</p>
+                  <p className="text-gray-400 text-sm">{prize}</p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {registerLink ? (
+            <a
+              href={registerLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 bg-red-600 hover:bg-red-500 text-white text-sm font-bold px-6 py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-200 shadow-[0_0_20px_rgba(239,68,68,0.3)] hover:shadow-[0_0_35px_rgba(239,68,68,0.6)]"
+            >
+              {registerLabel} <ExternalLink className="w-4 h-4" />
+            </a>
+          ) : !completed ? (
+            <button
+              disabled
+              className="mt-2 bg-gray-800/60 text-gray-500 text-sm font-semibold px-6 py-4 rounded-xl cursor-not-allowed border border-gray-700/50"
+            >
+              Registration Link Coming Soon
+            </button>
+          ) : null}
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default TechExpoCard;
