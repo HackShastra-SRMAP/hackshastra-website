@@ -2,24 +2,24 @@ import Logo from "./Logo";
 import GooeyNav from "@/components/ui/GooeyNav";
 import StaggeredMenu from "@/components/ui/StaggeredMenu";
 import logoPng from '@/assets/download.png';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/#about" },
-  { label: "Events", href: "/#events" },
-  { label: "Gallery", href: "/#gallery" },
-  { label: "Team", href: "/#team" },
-  { label: "Contact", href: "/#contact" },
+  { label: "About", href: "/about" },       // ✅ direct route
+  { label: "Events", href: "/events" },     // ✅ direct route
+  { label: "Gallery", href: "/gallery" },   // ✅ direct route
+  { label: "Team", href: "/team" },         // ✅ direct route
+  { label: "Contact", href: "/contact" },   // ✅ direct route
 ];
 
 const menuItems = [
   { label: "Home", ariaLabel: "Go to home", link: "/" },
-  { label: "About", ariaLabel: "Learn about us", link: "/#about" },
-  { label: "Events", ariaLabel: "View our events", link: "/#events" },
-  { label: "Gallery", ariaLabel: "View gallery", link: "/#gallery" },
-  { label: "Team", ariaLabel: "Meet the team", link: "/#team" },
-  { label: "Contact", ariaLabel: "Contact us", link: "/#contact" },
+  { label: "About", ariaLabel: "Learn about us", link: "/about" },
+  { label: "Events", ariaLabel: "View our events", link: "/events" },
+  { label: "Gallery", ariaLabel: "View gallery", link: "/gallery" },
+  { label: "Team", ariaLabel: "Meet the team", link: "/team" },
+  { label: "Contact", ariaLabel: "Contact us", link: "/contact" },
   { label: "Join Us", ariaLabel: "Join our club", link: "/join" },
 ];
 
@@ -31,25 +31,11 @@ const socialItems = [
 
 const Header = () => {
   const navigate = useNavigate();
-  const location = useLocation();
 
   const handleNavClick = (href: string) => {
-    if (href.startsWith('/#')) {
-      const sectionId = href.replace('/#', '');
-      if (location.pathname !== '/') {
-        navigate('/');
-        setTimeout(() => {
-          document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      } else {
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      navigate(href);
-    }
+    navigate(href);
   };
 
-  // Build modified navLinks that use onClick instead of href routing
   const navLinksWithHandler = navLinks.map(item => ({
     ...item,
     onClick: () => handleNavClick(item.href),
@@ -61,7 +47,6 @@ const Header = () => {
         <div className="flex h-16 items-center justify-between">
           <Logo size="sm" />
           
-          {/* Desktop Nav with Gooey Effect */}
           <div className="hidden md:block">
             <GooeyNav
               items={navLinksWithHandler}
@@ -75,7 +60,6 @@ const Header = () => {
             />
           </div>
 
-          {/* Mobile Menu - StaggeredMenu */}
           <div className="md:hidden">
             <StaggeredMenu
               position="right"

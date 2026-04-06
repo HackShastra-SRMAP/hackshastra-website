@@ -17,6 +17,7 @@ import TexpoRegisterPage from './pages/TexpoRegisterPage'
 import EventsPage from './pages/EventsPage'
 import NotFoundPage from './pages/NotFoundPage'
 
+
 /** Global SVG filter for GooeyButton — rendered once to avoid duplicate IDs */
 function GooeyButtonFilter() {
   return (
