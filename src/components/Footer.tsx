@@ -2,6 +2,7 @@ import { Separator } from "@/components/ui/separator";
 import { Globe, Mail, Share2, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
+import LocationMap from "./LocationMap";
 
 const footerLinks = {
   navigation: [
@@ -82,16 +83,7 @@ const Footer = () => {
               Guntur District, Andhra Pradesh 522502
             </p>
           </div>
-          <div
-            className="w-full h-20 md:h-24 bg-muted rounded-lg flex items-center justify-center overflow-hidden"
-            role="img"
-            aria-label="Map showing SRM University-AP campus location"
-          >
-            <div
-              className="w-full h-full bg-cover bg-center grayscale opacity-50"
-              style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuD1iS18tTym3ePS6ILFpPh-zs5GiYEk-VUmb_w7g7AnmwRo_9_6GqXWL9XMVnviYCJO1Z7_1gGK6N0KBQlgXjfbOqF7I_SVYDpzUfFotto_itFq3xmkhYG1VW0unqR2teY8Rfg8uIe2UatEqJf-1uiqr_3xhhMn40_nOt93dtqFxwbkUOrwdIDNEFJFknkQ5Z-Tnx2VVLYYLK7azLZfKEwTCP-rJ3qz8sbp6niyOVEcCvO8VliwyDWd1tVNMe4C3-gs9OaqW3BmfZ3M")' }}
-            />
-          </div>
+          <LocationMap />
         </div>
       </div>
 
