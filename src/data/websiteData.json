@@ -151,43 +151,6 @@
     ],
     "eventsTeam": [
       {
-        "name": "Sadwika Devi Karri",
-        "role": "Events and Management Team",
-        "specialty": "3rd Year",
-        "year": "3rd year",
-        "image": "@/assets/Photo  - Sadwika Devi Karri _ AP24110011424.jpg",
-        "linkedin": "https://www.linkedin.com/in/sadwika-devi-712867328",
-        "github": "https://github.com/sadwika99"
-      },
-      {
-        "name": "Sneha Kedari",
-        "role": "Events and Management Team",
-        "specialty": "3rd Year",
-        "year": "3rd year",
-        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215203/KSneha_jhrenm.jpg",
-        "linkedin": "https://www.linkedin.com/in/snehakedari",
-        "github": "https://github.com/snehakedari06"
-      },
-      {
-        "name": "Kamran Akmal Shaik",
-        "role": "Events and Management Team",
-        "specialty": "3rd Year",
-        "year": "3rd year",
-        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215207/Shaik_Kamran_Akmal_lvym6m.jpg",
-        "linkedin": "https://www.linkedin.com/in/kamran-akmal17",
-        "github": "https://github.com/kamran1711",
-        "instagram": "https://www.instagram.com/shaikkamran_1711/"
-      },
-      {
-        "name": "Priyal Singh",
-        "role": "Events and Management Team",
-        "specialty": "3rd Year",
-        "year": "3rd year",
-        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215205/Priyal_Singh_berflx.jpg",
-        "linkedin": "https://www.linkedin.com/in/priyal-singh-b876a1323",
-        "github": "https://github.com/ap24110011053/SRMS"
-      },
-      {
         "name": "Varshini Vemula",
         "role": "Events and Management Team",
         "specialty": "3rd Year",
@@ -195,24 +158,6 @@
         "image": "@/assets/IMG_20260119_134312 - Varshini Vemula _ AP24110011904.jpg",
         "linkedin": "https://www.linkedin.com/in/varshini-vemula-093266325",
         "github": "https://github.com/varshini-vemula04"
-      },
-      {
-        "name": "Chunduri. Bhuvana Sruthi",
-        "role": "Events and Management Team",
-        "specialty": "3rd Year",
-        "year": "3rd year",
-        "image": "https://drive.google.com/uc?export=download&id=1Tj-4jrWR2AQZxNcjmSwP-n6kplrykNm",
-        "linkedin": "",
-        "github": ""
-      },
-      {
-        "name": "Mahi Samhita",
-        "role": "Events and Management Team",
-        "specialty": "2nd Year",
-        "year": "2nd year",
-        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215205/Mahi_Samhita_v1g0f4.jpg",
-        "linkedin": "",
-        "github": ""
       },
       {
         "name": "Mohit Kumar Sharma",
@@ -232,15 +177,6 @@
         "linkedin": "",
         "github": ""
       },
-      {
-        "name": "Rudra Patel",
-        "role": "Events and Management Team",
-        "specialty": "2nd Year",
-        "year": "2nd year",
-        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215211/Rudra_Patel_qffjma.jpg",
-        "linkedin": "",
-        "github": ""
-      }
     ],
     "designTeam": [
       {
