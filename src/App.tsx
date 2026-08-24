@@ -32,9 +32,11 @@ function GooeyButtonFilter() {
   )
 }
 
+/** Global Layout wrapper rendering Header, Smooth Scroll, and background effects across all pages */
 function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <Header />
       <SmoothScroll />
       <a
         href="#main-content"
@@ -47,6 +49,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       <div id="main-content">
         {children}
       </div>
+      <Footer />
     </>
   )
 }
@@ -74,13 +77,11 @@ function HomePage() {
       {showLoading && (
         <LoadingScreen onLoadingComplete={handleLoadingComplete} />
       )}
-      <Header />
       <main>
         <Hero loadingComplete={loadingComplete} userInteracted={userInteracted} />
         <Events />
         <Mission />
       </main>
-      <Footer />
     </div>
   )
 }

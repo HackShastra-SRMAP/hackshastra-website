@@ -1,9 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { ArrowRight, Mail, Volume2, VolumeX } from "lucide-react";
-import logoPng from '@/assets/download.png';
-import bannerVideo from '@/assets/Image_to_Video_Generation.mp4';
 import VariableProximity from "@/components/ui/VariableProximity";
 import GooeyButton from "@/components/ui/GooeyButton";
+import siteData, { getImageUrl } from "@/data/siteData";
 
 interface HeroProps {
   loadingComplete?: boolean;
@@ -18,31 +17,34 @@ const Hero = ({ loadingComplete = false, userInteracted = false }: HeroProps) =>
   const videoRef = useRef<HTMLVideoElement>(null);
   const titleContainerRef = useRef<HTMLDivElement>(null);
 
+  // Extract data from dynamic websiteData.json store
+  const logoSrc = getImageUrl(siteData.hero.logo);
+  const videoSrc = getImageUrl(siteData.hero.video);
+  const title = siteData.hero.title;
+  const subtitle = siteData.hero.subtitle;
+  const description = siteData.hero.description;
+
   useEffect(() => {
     if (!loadingComplete || hasPlayedOnce) return;
     
     const video = videoRef.current;
     if (!video) return;
     
-    // If user interacted (clicked Enter button), try to play with sound
     if (userInteracted) {
       video.muted = false;
       setIsMuted(false);
     } else {
-      // Otherwise start muted
       video.muted = true;
       setIsMuted(true);
     }
     
-    // Play the video
     const playPromise = video.play();
     
     if (playPromise !== undefined) {
       playPromise.then(() => {
-        // Video started playing
+        // Video playing
       }).catch((err) => {
         console.log('Autoplay failed:', err);
-        // If unmuted autoplay fails, try muted
         if (!video.muted) {
           video.muted = true;
           setIsMuted(true);
@@ -51,7 +53,6 @@ const Hero = ({ loadingComplete = false, userInteracted = false }: HeroProps) =>
       });
     }
 
-    // Stop video after it ends (play once only)
     const handleEnded = () => {
       video.pause();
       video.currentTime = 0;
@@ -75,7 +76,7 @@ const Hero = ({ loadingComplete = false, userInteracted = false }: HeroProps) =>
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col">
+    <section className="relative min-h-screen flex flex-col pt-16">
       {/* Video Banner */}
       <div className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] w-full overflow-hidden">
         <video
@@ -85,7 +86,7 @@ const Hero = ({ loadingComplete = false, userInteracted = false }: HeroProps) =>
           preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src={bannerVideo} type="video/mp4" />
+          <source src={videoSrc} type="video/mp4" />
         </video>
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-black/40" />
@@ -108,8 +109,8 @@ const Hero = ({ loadingComplete = false, userInteracted = false }: HeroProps) =>
             {/* Logo */}
             <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-40 md:h-40 rounded-xl md:rounded-2xl overflow-hidden border-4 border-background shadow-2xl flex-shrink-0">
               <img 
-                src={logoPng} 
-                alt="HackShastra Logo" 
+                src={logoSrc} 
+                alt={`${title} Logo`} 
                 className="w-full h-full object-contain bg-black"
               />
             </div>
@@ -118,7 +119,7 @@ const Hero = ({ loadingComplete = false, userInteracted = false }: HeroProps) =>
             <div className="flex-1 pb-2" ref={titleContainerRef}>
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tight mb-2">
                 <VariableProximity
-                  label="HackShastra SRM-AP"
+                  label={title}
                   className="fire-text"
                   fromFontVariationSettings="'wght' 400"
                   toFontVariationSettings="'wght' 900"
@@ -128,7 +129,7 @@ const Hero = ({ loadingComplete = false, userInteracted = false }: HeroProps) =>
                 />
               </h1>
               <p className="text-muted-foreground text-base md:text-lg mb-4 md:mb-6">
-                Student Chapter
+                {subtitle}
               </p>
               <div className="flex flex-wrap gap-2 md:gap-3">
                 <GooeyButton href="/join">
@@ -146,10 +147,7 @@ const Hero = ({ loadingComplete = false, userInteracted = false }: HeroProps) =>
           {/* Description */}
           <div className="max-w-3xl mb-12 md:mb-16">
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-              We are a community of students driven by curiosity and a shared passion for technology. 
-              At HackShastra SRM-AP, we merge ancient wisdom with cutting-edge innovation, exploring fields like 
-              AI, cybersecurity, web development, and system design. Where tradition meets technology, 
-              breakthroughs happen.
+              {description}
             </p>
           </div>
         </div>
