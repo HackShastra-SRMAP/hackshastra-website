@@ -1,0 +1,415 @@
+{
+  "siteInfo": {
+    "name": "HACKSHASTRA SRM-AP",
+    "tagline": "India's First Creator-Led Tech Community",
+    "subTagline": "Student Chapter",
+    "university": "SRM University-AP",
+    "location": "SRM University-AP, Neerukonda, Mangalagiri Mandal, Guntur District, Andhra Pradesh 522502",
+    "shortLocation": "SRM University-AP, Amaravati, Andhra Pradesh",
+    "contactEmail": "hssc2025@srmap.edu.in",
+    "contactPhone": "Available on request",
+    "logo": "@/assets/download.png"
+  },
+  "socialLinks": {
+    "instagram": "https://www.instagram.com/hackshastra.srmuap?igsi=MTFjdDV6b2RiajByYg==",
+    "linkedin": "https://www.linkedin.com/company/hackshastra-srmap/",
+    "discord": "https://discord.gg/hackshastra",
+    "website": "#"
+  },
+  "navigation": {
+    "links": [
+      { "label": "Home", "href": "/" },
+      { "label": "About", "href": "/about" },
+      { "label": "Events", "href": "/events" },
+      { "label": "Gallery", "href": "/gallery" },
+      { "label": "Team", "href": "/team" },
+      { "label": "Contact", "href": "/contact" }
+    ],
+    "joinButtonText": "JOIN US",
+    "joinHref": "/join"
+  },
+  "hero": {
+    "title": "HackShastra SRM-AP",
+    "subtitle": "Student Chapter",
+    "description": "We are a community of students driven by curiosity and a shared passion for technology. At HackShastra SRM-AP, we merge ancient wisdom with cutting-edge innovation, exploring fields like AI, cybersecurity, web development, and system design. Where tradition meets technology, breakthroughs happen.",
+    "video": "@/assets/Image_to_Video_Generation.mp4",
+    "logo": "@/assets/download.png"
+  },
+  "about": {
+    "heroTagline": "About HackShastra SRM-AP",
+    "heroTitle": "India's First Creator-Led Tech Community",
+    "heroDescription": "Built at the intersection of learning, innovation, and student empowerment. Founded by Uday Sharma, we're not just a community — we're a movement.",
+    "visionTagline": "Our Vision",
+    "visionTitle": "Breaking barriers, building bold, unlocking opportunities for all.",
+    "visionDescription": "At HackShastra SRM University-AP, we create a platform where ideas are shared without fear, teams are built across departments, careers are launched from side-projects, and students become leaders one build at a time.",
+    "visionBullets": [
+      "Host diverse hackathon formats: 8/24/36/48-hour events",
+      "Build a self-sustaining tech community with national visibility",
+      "Create a builder-first, student-led culture focused on learning by doing"
+    ],
+    "departments": [
+      { "name": "Events & Hackathons", "icon": "Rocket" },
+      { "name": "Technical Core", "icon": "Code" },
+      { "name": "Design & Content", "icon": "Lightbulb" },
+      { "name": "Learning & Mentorship", "icon": "Target" },
+      { "name": "PR & Sponsorship", "icon": "TrendingUp" },
+      { "name": "Community Engagement", "icon": "Users" }
+    ],
+    "eventTypes": [
+      "8/24/36/48-hour Hackathons",
+      "Ideathons & Pitch Battles",
+      "Tech Workshops (AI, ML, Web3)",
+      "Creator Speaker Sessions",
+      "Tech Meetups & Networking",
+      "Bootcamps & Skill Building"
+    ],
+    "partnerships": [
+      { "title": "University Visibility", "description": "Boost visibility through 300K+ creator network and viral event reach" },
+      { "title": "High Footfall Events", "description": "Media buzz and student-led showcases that attract attention" },
+      { "title": "Hands-on Learning", "description": "Project-driven learning and skill building for students" },
+      { "title": "Industry Connect", "description": "Co-branded events with industry mentors, creators & startups" }
+    ]
+  },
+  "events": {
+    "upcoming": [
+      {
+        "title": "HackShastra National Hackathon 2026",
+        "subtitle": "India's Premier 36-Hour Student Hackathon & Innovation Codefest | Registrations Opening Soon",
+        "image": "/events/blockforge.png",
+        "completed": false,
+        "announcement": "Announcing Soon"
+      },
+      {
+        "title": "AI & Web3 Innovation Bootcamp 2026",
+        "subtitle": "Hands-on Masterclasses, Live Project Build Sessions & Industry Creator Mentorship",
+        "image": "/events/new.png",
+        "completed": false,
+        "announcement": "Registrations Opening Soon"
+      }
+    ],
+    "completed": [
+      {
+        "title": "TEXPO'26 - Student Innovation & Industry Technology Expo",
+        "subtitle": "Student Innovation & Industry Technology Expo | Prizes worth ₹30,000",
+        "image": "/events/texpo.png",
+        "completed": true,
+        "registerUrl": "https://unstop.com/competitions/texpo-2026-student-innovation-and-industry-technology-expo-srm-university-srmap-andhra-pradesh-1638340"
+      },
+      {
+        "title": "Block Forge - Blockchain Workshop & Hackathon",
+        "subtitle": "Hands-on Blockchain Workshop & Mini Hackathon",
+        "image": "/events/blockforge.png",
+        "completed": true
+      },
+      {
+        "title": "AI Innovators Meetup",
+        "subtitle": "Explore AI, ML & real-world innovations",
+        "image": "/events/new.png",
+        "completed": true
+      }
+    ]
+  },
+  "team": {
+    "leadership": [
+      {
+        "name": "Ghule Aniket",
+        "role": "Leader",
+        "specialty": "3rd Year",
+        "image": "@/assets/aniket.jpg",
+        "linkedin": "https://www.linkedin.com/in/aniketh-ghule-111b2a326",
+        "instagram": "https://www.instagram.com/ghule_aniketh/"
+      },
+      {
+        "name": "Aditya Pratap Singh",
+        "role": "Co-Leader",
+        "specialty": "3rd Year",
+        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215204/Aditya_pratap_singh_qdvrpt.jpg"
+      },
+      {
+        "name": "Tejas",
+        "role": "General Secretary",
+        "specialty": "3rd Year",
+        "image": "@/assets/WhatsApp Image 2026-01-29 at 11.15.56 PM.jpeg"
+      }
+    ],
+    "clubAdvisory": [
+      {
+        "name": "Mr. Rijvan Beg",
+        "role": "Faculty Advisor",
+        "specialty": "Assistant Professor, Department of Computer Science and Engineering",
+        "image": "@/assets/WhatsApp Image 2026-01-22 at 9.03.03 PM.jpeg"
+      },
+      {
+        "name": "Vedansh Rathore",
+        "role": "Student Advisor",
+        "specialty": "4th Year",
+        "image": "@/assets/Photo2.jpg.jpeg",
+        "linkedin": "https://www.linkedin.com/in/vedansh-rathore",
+        "github": "https://github.com/Graypool",
+        "instagram": "https://www.instagram.com/r_vedansh/"
+      }
+    ],
+    "eventsTeam": [
+      {
+        "name": "Sadwika Devi Karri",
+        "role": "Events and Management Team",
+        "specialty": "3rd Year",
+        "year": "3rd year",
+        "image": "@/assets/Photo  - Sadwika Devi Karri _ AP24110011424.jpg",
+        "linkedin": "https://www.linkedin.com/in/sadwika-devi-712867328",
+        "github": "https://github.com/sadwika99"
+      },
+      {
+        "name": "Sneha Kedari",
+        "role": "Events and Management Team",
+        "specialty": "3rd Year",
+        "year": "3rd year",
+        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215203/KSneha_jhrenm.jpg",
+        "linkedin": "https://www.linkedin.com/in/snehakedari",
+        "github": "https://github.com/snehakedari06"
+      },
+      {
+        "name": "Kamran Akmal Shaik",
+        "role": "Events and Management Team",
+        "specialty": "3rd Year",
+        "year": "3rd year",
+        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215207/Shaik_Kamran_Akmal_lvym6m.jpg",
+        "linkedin": "https://www.linkedin.com/in/kamran-akmal17",
+        "github": "https://github.com/kamran1711",
+        "instagram": "https://www.instagram.com/shaikkamran_1711/"
+      },
+      {
+        "name": "Priyal Singh",
+        "role": "Events and Management Team",
+        "specialty": "3rd Year",
+        "year": "3rd year",
+        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215205/Priyal_Singh_berflx.jpg",
+        "linkedin": "https://www.linkedin.com/in/priyal-singh-b876a1323",
+        "github": "https://github.com/ap24110011053/SRMS"
+      },
+      {
+        "name": "Varshini Vemula",
+        "role": "Events and Management Team",
+        "specialty": "3rd Year",
+        "year": "3rd year",
+        "image": "@/assets/IMG_20260119_134312 - Varshini Vemula _ AP24110011904.jpg",
+        "linkedin": "https://www.linkedin.com/in/varshini-vemula-093266325",
+        "github": "https://github.com/varshini-vemula04"
+      },
+      {
+        "name": "Chunduri. Bhuvana Sruthi",
+        "role": "Events and Management Team",
+        "specialty": "3rd Year",
+        "year": "3rd year",
+        "image": "https://drive.google.com/uc?export=download&id=1Tj-4jrWR2AQZxNcjmSwP-n6kplrykNm",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "name": "Mahi Samhita",
+        "role": "Events and Management Team",
+        "specialty": "2nd Year",
+        "year": "2nd year",
+        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215205/Mahi_Samhita_v1g0f4.jpg",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "name": "Mohit Kumar Sharma",
+        "role": "Events and Management Team",
+        "specialty": "2nd Year",
+        "year": "2nd year",
+        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215205/Mohit_Kumar_Sharma_rsslno.jpg",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "name": "Muskan Singh",
+        "role": "Events and Management Team",
+        "specialty": "2nd Year",
+        "year": "2nd year",
+        "image": "https://drive.google.com/uc?export=download&id=1Cvb_dUq_aU136aVDF3J6wXyBsf-M4N0u",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "name": "Rudra Patel",
+        "role": "Events and Management Team",
+        "specialty": "2nd Year",
+        "year": "2nd year",
+        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215211/Rudra_Patel_qffjma.jpg",
+        "linkedin": "",
+        "github": ""
+      }
+    ],
+    "designTeam": [
+      {
+        "name": "Saswat Dutta",
+        "role": "Design & Social Media",
+        "specialty": "2nd Year",
+        "year": "2nd year",
+        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215206/Saswat_Dutta_r8ytwi.jpg",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "name": "Saranya Palutla",
+        "role": "Design & Social Media",
+        "specialty": "2nd Year",
+        "year": "2nd year",
+        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215205/Palutla_Sri_Raghavendra_Saranya_hf04nz.jpg",
+        "linkedin": "https://www.linkedin.com/in/saranya-p-7ba28a388"
+      },
+      {
+        "name": "G. Snehitha",
+        "role": "Design & Social Media",
+        "specialty": "3rd Year",
+        "year": "3rd year",
+        "image": "@/assets/WhatsApp Image 2026-01-19 at 21.07.36 - Snehitha Gandu _ AP24110011008.jpeg",
+        "linkedin": "https://www.linkedin.com/in/snehitha-gandu14012006",
+        "github": "https://github.com/AP24110011008",
+        "instagram": "https://www.instagram.com/__snehitha._"
+      },
+      {
+        "name": "Rajshree Rathour",
+        "role": "Design & Social Media",
+        "specialty": "3rd Year",
+        "year": "3rd year",
+        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215207/Rajshree_Rathour_w8rsgo.jpg",
+        "linkedin": "https://www.linkedin.com/in/rajshree-rathour-85025933b"
+      },
+      {
+        "name": "Chinthalpudi Skanda Pranith",
+        "role": "Design & Social Media",
+        "specialty": "3rd Year",
+        "year": "3rd year",
+        "image": "@/assets/logo.svg",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "name": "Kaniska S Hiremath",
+        "role": "Design & Social Media",
+        "specialty": "2nd Year",
+        "year": "2nd year",
+        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215205/Kaniska_S_Hiremath_nrdg1x.jpg",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "name": "Rahul Varma",
+        "role": "Design & Social Media",
+        "specialty": "2nd Year",
+        "year": "2nd year",
+        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215206/Rahul_Varma_ocjbvi.jpg",
+        "linkedin": "",
+        "github": ""
+      }
+    ],
+    "internalAffairsLogisticsTeam": [
+      {
+        "name": "Ansh Chaudhary",
+        "role": "Internal Affairs and Logistics Team",
+        "specialty": "3rd Year",
+        "year": "3rd year",
+        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780216649/AnshChaudhary_xtvfyn.jpg",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "name": "Divyanshi Chaurasia",
+        "role": "Internal Affairs and Logistics Team",
+        "specialty": "2nd Year",
+        "year": "2nd year",
+        "image": "@/assets/logo.svg",
+        "linkedin": "",
+        "github": ""
+      }
+    ],
+    "socialMediaPrTeam": [
+      {
+        "name": "E Varun Sai",
+        "role": "Social Media and PR Team",
+        "specialty": "3rd Year",
+        "year": "3rd year",
+        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215204/E_Varun_Sai_cyf7kl.jpg",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "name": "Prince Kumar Yadav",
+        "role": "Social Media and PR Team",
+        "specialty": "2nd Year",
+        "year": "2nd year",
+        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215205/Prince_kumar_yadav_i9p9tu.jpg",
+        "linkedin": "",
+        "github": ""
+      }
+    ],
+    "technicalTeam": [
+      {
+        "name": "Venkata Ramana",
+        "role": "Technical Team",
+        "specialty": "3rd Year",
+        "year": "3rd year",
+        "image": "@/assets/drive-download-20260213T143427Z-1-001/20260208_172130.jpg",
+        "linkedin": "https://www.linkedin.com/in/venkata-ramana-komari-402058316/",
+        "instagram": "https://www.instagram.com/venkatsunny56/"
+      },
+      {
+        "name": "Yaswanth Kumar Rayi",
+        "role": "Technical Team",
+        "specialty": "3rd Year",
+        "year": "3rd year",
+        "image": "@/assets/IMG_1232 - Yaswanth Kumar Rayi _ AP24110011884.jpeg",
+        "linkedin": "https://www.linkedin.com/in/yaswanthkumarrayi/",
+        "github": "https://github.com/yaswanthkumarrayi"
+      },
+      {
+        "name": "Rishabh Surana",
+        "role": "Technical Team",
+        "specialty": "3rd Year",
+        "year": "3rd year",
+        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1787576376/WhatsApp_Image_2026-08-24_at_6.28.54_PM_xaqcpc.jpg",
+        "linkedin": "https://www.linkedin.com/in/rishabh-surana-299716395?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": "https://github.com/surana-rishabh"
+      },
+      {
+        "name": "Chaitra Gorla",
+        "role": "Technical Team",
+        "specialty": "3rd Year",
+        "year": "3rd year",
+        "image": "https://drive.google.com/uc?export=download&id=1ZW1q7XlePgFVy6CBSm2dzxF_hJXuXozX",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "name": "Manas Kumar Mishra",
+        "role": "Technical Team",
+        "specialty": "2nd Year",
+        "year": "2nd year",
+        "image": "https://res.cloudinary.com/ddifdlwbh/image/upload/v1780215204/Manas_Kumar_Mishra_nmvod8.jpg",
+        "linkedin": "",
+        "github": ""
+      }
+    ]
+  },
+  "gallery": [
+    { "id": "12", "img": "@/assets/WhatsApp Image 2026-02-04 at 1.45.14 PM.jpeg", "height": 390 },
+    { "id": "14", "img": "@/assets/WhatsApp Image 2026-02-04 at 1.45.15 PM.jpeg", "height": 400 },
+    { "id": "13", "img": "@/assets/WhatsApp Image 2026-02-04 at 1.45.13 PM (1).jpeg", "height": 400 },
+    { "id": "6", "img": "@/assets/WhatsApp Image 2026-02-04 at 1.45.12 PM.jpeg", "height": 420 }
+  ],
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have questions about HackShastra SRM-AP? Want to collaborate or sponsor an event? We'd love to hear from you.",
+    "email": "hssc2025@srmap.edu.in",
+    "location": "SRM University-AP\nAmaravati, Andhra Pradesh",
+    "phone": "Available on request"
+  },
+  "join": {
+    "title": "Coming Soon",
+    "description": "We're not accepting new members at the moment. Stay tuned for updates!",
+    "subtext": "Follow us on social media to get notified when registrations open"
+  }
+}

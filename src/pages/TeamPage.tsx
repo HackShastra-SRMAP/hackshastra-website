@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
-import { ArrowLeft, Linkedin, Github, Globe, Instagram } from 'lucide-react';
+import React from 'react';
+import { Linkedin, Github, Globe, Instagram, Mail, MessageCircle } from 'lucide-react';
 import TiltedCard from '@/components/ui/TiltedCard';
+import siteData, { getImageUrl } from '@/data/siteData';
 
-interface TeamMember {
+interface MemberProps {
   name: string;
   role: string;
   specialty: string;
@@ -14,214 +15,77 @@ interface TeamMember {
   instagram?: string;
 }
 
-const leadership: TeamMember[] = [
-  {
-    name: "Ghule Aniket",
-    role: "Leader",
-    specialty: "",
-    image: new URL('@/assets/aniket.jpg', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/aniketh-ghule-111b2a326",
-    instagram: "https://www.instagram.com/ghule_aniketh/"
-  },
-  {
-    name: "Aditya Pratap Singh",
-    role: "Co-Leader",
-    specialty: "2nd Year",
-    image: new URL('@/assets/WhatsApp Image 2026-01-21 at 11.30.09 PM.jpeg', import.meta.url).href
-  },
-  {
-    name: "Tejas",
-    role: "General Secretary",
-    specialty: "",
-    image: new URL('@/assets/WhatsApp Image 2026-01-29 at 11.15.56 PM.jpeg', import.meta.url).href
-  }
-];
+/**
+ * Memoized Team Member Card for 60fps fast scroll performance
+ */
+const TeamMemberCard = React.memo(function TeamMemberCard({ member }: { member: MemberProps }) {
+  const imageSrc = getImageUrl(member.image);
 
-const coreLeadership: TeamMember[] = [
-  {
-    name: "Kartikay Mishra",
-    role: "Events Lead",
-    specialty: "",
-    image: new URL('@/assets/1764706409864 - Kartikay Mishra _ AP24110010801.jpg', import.meta.url).href
-  },
-  {
-    name: "Aditi Kotnala",
-    role: "Design Lead",
-    specialty: "",
-    image: new URL('@/assets/IMG - Aditi Kotnala _ AP24110010829.jpg', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/aditi-kotnala-263353335"
-  },
-  {
-    name: "Venkata Ramana",
-    role: "Tech Lead",
-    specialty: "",
-    image: new URL('@/assets/drive-download-20260213T143427Z-1-001/20260208_172130.jpg', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/venkata-ramana-komari-402058316/",
-    instagram: "https://www.instagram.com/venkatsunny56/"
-  },
-  {
-    name: "Utkarsh Awasthi",
-    role: "Internal Affairs Lead",
-    specialty: "",
-    image: new URL('@/assets/IMG_20251211_140219833_HDR - Utkarsh Awasthi _ AP24110020047.jpg', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/utkarsh-awasthi-276a92367",
-    github: "https://github.com/Awasthiutk564"
-  }
-];
-
-const clubAdvisory: TeamMember[] = [
-  {
-    name: "Mr. Rijvan Beg",
-    role: "Faculty Advisor",
-    specialty: "Assistant Professor, Department of Computer Science and Engineering",
-    image: new URL('@/assets/WhatsApp Image 2026-01-22 at 9.03.03 PM.jpeg', import.meta.url).href
-  },
-  {
-    name: "Vedansh Rathore",
-    role: "Student Advisor",
-    specialty: "",
-    image: new URL('@/assets/Photo2.jpg.jpeg', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/vedansh-rathore",
-    github: "https://github.com/Graypool",
-    instagram: "https://www.instagram.com/r_vedansh/"
-  }
-];
-
-const eventsTeam: TeamMember[] = [
-  {
-    name: "Sadwika Devi Karri",
-    role: "Events Team",
-    specialty: "2nd Year",
-    year: "2nd year",
-    image: new URL('@/assets/Photo  - Sadwika Devi Karri _ AP24110011424.jpg', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/sadwika-devi-712867328",
-    github: "https://github.com/sadwika99"
-  },
-  {
-    name: "Sneha Kedari",
-    role: "Events Team",
-    specialty: "2nd Year",
-    year: "2nd year",
-    image: new URL('@/assets/sneha - Sneha Kedari _ AP24110011417.jpeg', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/snehakedari",
-    github: "https://github.com/snehakedari06"
-  },
-  {
-    name: "Kamran Akmal Shaik",
-    role: "Events Team",
-    specialty: "2nd Year",
-    year: "2nd year",
-    image: new URL('@/assets/153A6120 - Kamran Akmal Shaik _ AP24110011415.JPG', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/kamran-akmal17",
-    github: "https://github.com/kamran1711",
-    instagram: "https://www.instagram.com/shaikkamran_1711/"
-  },
-  {
-    name: "Priyal Singh",
-    role: "Events Team",
-    specialty: "2nd Year",
-    year: "2nd year",
-    image: new URL('@/assets/Screenshot_2026-01-19-21-52-51-788_com.google.android.apps.photos - Priyal Singh _ AP24110011053.jpg', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/priyal-singh-b876a1323",
-    github: "https://github.com/ap24110011053/SRMS"
-  },
-  {
-    name: "Varshini Vemula",
-    role: "Events Team",
-    specialty: "2nd Year",
-    year: "2nd year",
-    image: new URL('@/assets/IMG_20260119_134312 - Varshini Vemula _ AP24110011904.jpg', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/varshini-vemula-093266325",
-    github: "https://github.com/varshini-vemula04"
-  },
-  {
-    name: "Abhiram Jana",
-    role: "Events Team",
-    specialty: "2nd Year",
-    year: "2nd year",
-    image: new URL('@/assets/IMG-20251223-WA0078 - Abhiram Jana _ AP24110011026.jpg', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/abhi-ram-a7205b380/",
-    github: "https://github.com/ap24110011026"
-  },
-  {
-    name: "Yaswanth Kumar Rayi",
-    role: "Events Team",
-    specialty: "2nd Year",
-    year: "2nd year",
-    image: new URL('@/assets/IMG_1232 - Yaswanth Kumar Rayi _ AP24110011884.jpeg', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/yaswanthkumarrayi/",
-    github: "https://github.com/yaswanthkumarrayi"
-  }
-];
-
-const designTeam: TeamMember[] = [
-  {
-    name: "Saranya Palutla",
-    role: "Design & Social Media",
-    specialty: "1st Year",
-    year: "1st year",
-    image: new URL('@/assets/IMG-20251027-WA0080 - Sri Raghavendra Saranya Palutla _ AP25110010497.jpg', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/saranya-p-7ba28a388"
-  },
-  {
-    name: "Apram Kaur Bhatia",
-    role: "Design & Social Media",
-    specialty: "2nd Year",
-    year: "2nd year",
-    image: new URL('@/assets/IMG_20250919_190756_378 - Apram Kaur Bhatia _ AP24110010341.webp', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/apram-kaur-bhatia-033290327"
-  },
-  {
-    name: "G. Snehitha",
-    role: "Design & Social Media",
-    specialty: "2nd Year",
-    year: "2nd year",
-    image: new URL('@/assets/WhatsApp Image 2026-01-19 at 21.07.36 - Snehitha Gandu _ AP24110011008.jpeg', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/snehitha-gandu14012006",
-    github: "https://github.com/AP24110011008",
-    instagram: "https://www.instagram.com/__snehitha._"
-  },
-  {
-    name: "Rajshree Rathour",
-    role: "Design & Social Media",
-    specialty: "2nd Year",
-    year: "2nd year",
-    image: new URL('@/assets/B612_20241106_205903_548 - Rajshree Rathour _ AP24110010097.jpg', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/rajshree-rathour-85025933b"
-  },
-  {
-    name: "Nikhilkumar Ghanta",
-    role: "Design & Social Media",
-    specialty: "2nd Year",
-    year: "2nd year",
-    image: new URL('@/assets/motion_photo_4541990487710122067 - Nikhilkumar Ghanta _ AP24110011023.jpg', import.meta.url).href,
-    linkedin: "https://www.linkedin.com/in/ghanta-nikhil-kumar-541415315",
-    github: "https://github.com/NikhilKumar-005",
-    portfolio: "https://ghantanikhilkumar.wixstudio.io/nikhil-folio-1",
-    instagram: "https://www.instagram.com/_nikhil_kumar_500"
-  }
-];
+  return (
+    <div className="flex flex-col items-center">
+      <TiltedCard
+        imageSrc={imageSrc}
+        altText={member.name}
+        captionText={member.role}
+        containerHeight="320px"
+        containerWidth="240px"
+        imageHeight="320px"
+        imageWidth="240px"
+        rotateAmplitude={12}
+        scaleOnHover={1.1}
+        showMobileWarning={false}
+        showTooltip={true}
+        displayOverlayContent={true}
+        overlayContent={
+          <div>
+            <p className="tilted-card-overlay-name">{member.name}</p>
+            <p className="tilted-card-overlay-role">{member.role}</p>
+            <p className="text-xs text-muted-foreground mt-1">{member.specialty}</p>
+          </div>
+        }
+      />
+      {(member.linkedin || member.github || member.portfolio || member.instagram) && (
+        <div className="flex gap-3 mt-4">
+          {member.linkedin && (
+            <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label={`${member.name} LinkedIn`}>
+              <Linkedin className="w-5 h-5" />
+            </a>
+          )}
+          {member.github && (
+            <a href={member.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label={`${member.name} GitHub`}>
+              <Github className="w-5 h-5" />
+            </a>
+          )}
+          {member.portfolio && (
+            <a href={member.portfolio} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label={`${member.name} Portfolio`}>
+              <Globe className="w-5 h-5" />
+            </a>
+          )}
+          {member.instagram && (
+            <a href={member.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label={`${member.name} Instagram`}>
+              <Instagram className="w-5 h-5" />
+            </a>
+          )}
+        </div>
+      )}
+    </div>
+  );
+});
 
 export default function TeamPage() {
+  const teamData = siteData.team;
+  const socials = siteData.socialLinks;
+
   return (
     <div className="bg-background text-foreground min-h-screen">
-      {/* Back button */}
-      <Link
-        to="/"
-        className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-black/50 backdrop-blur-sm rounded-full border border-border hover:border-primary transition-colors text-white"
-      >
-        <ArrowLeft className="w-4 h-4" />
-        <span className="text-sm font-medium">Back</span>
-      </Link>
-
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
+      <section className="pt-24 md:pt-32 pb-16 md:pb-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-primary text-sm font-black tracking-[0.3em] uppercase mb-4">Meet The Team</p>
-          <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
-            The Minds Behind <span className="text-primary">HackShastra SRM-AP</span>
+          <p className="text-primary text-xs md:text-sm font-black tracking-[0.3em] uppercase mb-4">Meet The Team</p>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tight mb-6">
+            The Minds Behind <span className="text-primary">{siteData.siteInfo.name}</span>
           </h1>
-          <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-base md:text-xl leading-relaxed max-w-2xl mx-auto">
             Our dedicated team of leaders and innovators working together to build 
             a thriving tech community.
           </p>
@@ -229,319 +93,150 @@ export default function TeamPage() {
       </section>
 
       {/* Club Advisory Section */}
-      <section className="py-20 px-6 bg-card border-y border-border">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col gap-4 mb-16 text-center">
-            <p className="text-primary text-sm font-black tracking-[0.3em] uppercase">Guidance</p>
-            <h2 className="text-foreground text-3xl md:text-4xl font-bold">Club Advisory</h2>
+      {teamData.clubAdvisory && teamData.clubAdvisory.length > 0 && (
+        <section className="py-16 md:py-20 px-6 bg-card border-y border-border">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col gap-3 mb-12 text-center">
+              <p className="text-primary text-xs md:text-sm font-black tracking-[0.3em] uppercase">Guidance</p>
+              <h2 className="text-foreground text-2xl md:text-4xl font-bold">Club Advisory</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 justify-items-center max-w-2xl mx-auto">
+              {teamData.clubAdvisory.map((member) => (
+                <TeamMemberCard key={member.name} member={member} />
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 justify-items-center max-w-2xl mx-auto">
-            {clubAdvisory.map((member) => (
-              <div key={member.name} className="flex flex-col items-center">
-                <TiltedCard
-                  imageSrc={member.image}
-                  altText={member.name}
-                  captionText={member.role}
-                  containerHeight="320px"
-                  containerWidth="240px"
-                  imageHeight="320px"
-                  imageWidth="240px"
-                  rotateAmplitude={12}
-                  scaleOnHover={1.1}
-                  showMobileWarning={false}
-                  showTooltip={true}
-                  displayOverlayContent={true}
-                  overlayContent={
-                    <div>
-                      <p className="tilted-card-overlay-name">{member.name}</p>
-                      <p className="tilted-card-overlay-role">{member.role}</p>
-                      <p className="text-xs text-muted-foreground mt-1">{member.specialty}</p>
-                    </div>
-                  }
-                />
-                {(member.linkedin || member.github || member.portfolio || member.instagram) && (
-                  <div className="flex gap-3 mt-4">
-                    {member.linkedin && (
-                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                        <Linkedin className="w-5 h-5" />
-                      </a>
-                    )}
-                    {member.github && (
-                      <a href={member.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                        <Github className="w-5 h-5" />
-                      </a>
-                    )}
-                    {member.portfolio && (
-                      <a href={member.portfolio} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                        <Globe className="w-5 h-5" />
-                      </a>
-                    )}
-                    {member.instagram && (
-                      <a href={member.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                        <Instagram className="w-5 h-5" />
-                      </a>
-                    )}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Leadership Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col gap-4 mb-16 text-center">
-            <p className="text-primary text-sm font-black tracking-[0.3em] uppercase">The Leaders</p>
-            <h2 className="text-foreground text-3xl md:text-4xl font-bold">Community Board</h2>
+      {teamData.leadership && teamData.leadership.length > 0 && (
+        <section className="py-16 md:py-20 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col gap-3 mb-12 text-center">
+              <p className="text-primary text-xs md:text-sm font-black tracking-[0.3em] uppercase">The Leaders</p>
+              <h2 className="text-foreground text-2xl md:text-4xl font-bold">Community Board</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-4xl mx-auto">
+              {teamData.leadership.map((member) => (
+                <TeamMemberCard key={member.name} member={member} />
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-4xl mx-auto">
-            {leadership.map((member) => (
-              <div key={member.name} className="flex flex-col items-center">
-                <TiltedCard
-                  imageSrc={member.image}
-                  altText={member.name}
-                  captionText={member.role}
-                  containerHeight="320px"
-                  containerWidth="240px"
-                  imageHeight="320px"
-                  imageWidth="240px"
-                  rotateAmplitude={12}
-                  scaleOnHover={1.1}
-                  showMobileWarning={false}
-                  showTooltip={true}
-                  displayOverlayContent={true}
-                  overlayContent={
-                    <div>
-                      <p className="tilted-card-overlay-name">{member.name}</p>
-                      <p className="tilted-card-overlay-role">{member.role}</p>
-                      <p className="text-xs text-muted-foreground mt-1">{member.specialty}</p>
-                    </div>
-                  }
-                />
-                {(member.linkedin || member.github || member.portfolio || member.instagram) && (
-                  <div className="flex gap-3 mt-4">
-                    {member.linkedin && (
-                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                        <Linkedin className="w-5 h-5" />
-                      </a>
-                    )}
-                    {member.github && (
-                      <a href={member.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                        <Github className="w-5 h-5" />
-                      </a>
-                    )}
-                    {member.portfolio && (
-                      <a href={member.portfolio} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                        <Globe className="w-5 h-5" />
-                      </a>
-                    )}
-                    {member.instagram && (
-                      <a href={member.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                        <Instagram className="w-5 h-5" />
-                      </a>
-                    )}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* Core Leadership Section */}
-      <section className="py-20 px-6 bg-card border-y border-border">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col gap-4 mb-16 text-center">
-            <p className="text-primary text-sm font-black tracking-[0.3em] uppercase">The Team</p>
-            <h2 className="text-foreground text-3xl md:text-4xl font-bold">Wings Leads</h2>
+      {/* Technical Team Section */}
+      {teamData.technicalTeam && teamData.technicalTeam.length > 0 && (
+        <section className="py-16 md:py-20 px-6 bg-card border-y border-border">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col gap-3 mb-12 text-center">
+              <p className="text-primary text-xs md:text-sm font-black tracking-[0.3em] uppercase">Build</p>
+              <h2 className="text-foreground text-2xl md:text-4xl font-bold">Technical Team</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {teamData.technicalTeam.map((member) => (
+                <TeamMemberCard key={member.name} member={member} />
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
-            {coreLeadership.map((member) => (
-              <div key={member.name} className="flex flex-col items-center">
-                <TiltedCard
-                  imageSrc={member.image}
-                  altText={member.name}
-                  captionText={member.role}
-                  containerHeight="320px"
-                  containerWidth="240px"
-                  imageHeight="320px"
-                  imageWidth="240px"
-                  rotateAmplitude={12}
-                  scaleOnHover={1.1}
-                  showMobileWarning={false}
-                  showTooltip={true}
-                  displayOverlayContent={true}
-                  overlayContent={
-                    <div>
-                      <p className="tilted-card-overlay-name">{member.name}</p>
-                      <p className="tilted-card-overlay-role">{member.role}</p>
-                      <p className="text-xs text-muted-foreground mt-1">{member.specialty}</p>
-                    </div>
-                  }
-                />
-                {(member.linkedin || member.github || member.portfolio || member.instagram) && (
-                  <div className="flex gap-3 mt-4">
-                    {member.linkedin && (
-                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                        <Linkedin className="w-5 h-5" />
-                      </a>
-                    )}
-                    {member.github && (
-                      <a href={member.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                        <Github className="w-5 h-5" />
-                      </a>
-                    )}
-                    {member.portfolio && (
-                      <a href={member.portfolio} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                        <Globe className="w-5 h-5" />
-                      </a>
-                    )}
-                    {member.instagram && (
-                      <a href={member.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                        <Instagram className="w-5 h-5" />
-                      </a>
-                    )}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* Events Team Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col gap-4 mb-16 text-center">
-            <p className="text-primary text-sm font-black tracking-[0.3em] uppercase">Events</p>
-            <h2 className="text-foreground text-3xl md:text-4xl font-bold">Events Team</h2>
+      {/* Design and Creative Team Section */}
+      {teamData.designTeam && teamData.designTeam.length > 0 && (
+        <section className="py-16 md:py-20 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col gap-3 mb-12 text-center">
+              <p className="text-primary text-xs md:text-sm font-black tracking-[0.3em] uppercase">Creative</p>
+              <h2 className="text-foreground text-2xl md:text-4xl font-bold">Design and Creative Team</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {teamData.designTeam.map((member) => (
+                <TeamMemberCard key={member.name} member={member} />
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {eventsTeam.map((member) => (
-              <div key={member.name} className="flex flex-col items-center">
-                <TiltedCard
-                  imageSrc={member.image}
-                  altText={member.name}
-                  captionText={member.role}
-                  containerHeight="320px"
-                  containerWidth="240px"
-                  imageHeight="320px"
-                  imageWidth="240px"
-                  rotateAmplitude={12}
-                  scaleOnHover={1.1}
-                  showMobileWarning={false}
-                  showTooltip={true}
-                  displayOverlayContent={true}
-                  overlayContent={
-                    <div>
-                      <p className="tilted-card-overlay-name">{member.name}</p>
-                      <p className="tilted-card-overlay-role">{member.role}</p>
-                      <p className="text-xs text-muted-foreground mt-1">{member.specialty}</p>
-                    </div>
-                  }
-                />
-                <div className="flex gap-3 mt-4">
-                  {member.linkedin && (
-                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                  )}
-                  {member.github && (
-                    <a href={member.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                      <Github className="w-5 h-5" />
-                    </a>
-                  )}
-                  {member.portfolio && (
-                    <a href={member.portfolio} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                      <Globe className="w-5 h-5" />
-                    </a>
-                  )}
-                  {member.instagram && (
-                    <a href={member.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                      <Instagram className="w-5 h-5" />
-                    </a>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* Design & Social Media Team Section */}
-      <section className="py-20 px-6 bg-card border-y border-border">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col gap-4 mb-16 text-center">
-            <p className="text-primary text-sm font-black tracking-[0.3em] uppercase">Creative</p>
-            <h2 className="text-foreground text-3xl md:text-4xl font-bold">Design & Social Media Team</h2>
+      {/* Events and Management Team Section */}
+      {teamData.eventsTeam && teamData.eventsTeam.length > 0 && (
+        <section className="py-16 md:py-20 px-6 bg-card border-y border-border">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col gap-3 mb-12 text-center">
+              <p className="text-primary text-xs md:text-sm font-black tracking-[0.3em] uppercase">Events</p>
+              <h2 className="text-foreground text-2xl md:text-4xl font-bold">Events and Management Team</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {teamData.eventsTeam.map((member) => (
+                <TeamMemberCard key={member.name} member={member} />
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {designTeam.map((member) => (
-              <div key={member.name} className="flex flex-col items-center">
-                <TiltedCard
-                  imageSrc={member.image}
-                  altText={member.name}
-                  captionText={member.role}
-                  containerHeight="320px"
-                  containerWidth="240px"
-                  imageHeight="320px"
-                  imageWidth="240px"
-                  rotateAmplitude={12}
-                  scaleOnHover={1.1}
-                  showMobileWarning={false}
-                  showTooltip={true}
-                  displayOverlayContent={true}
-                  overlayContent={
-                    <div>
-                      <p className="tilted-card-overlay-name">{member.name}</p>
-                      <p className="tilted-card-overlay-role">{member.role}</p>
-                      <p className="text-xs text-muted-foreground mt-1">{member.specialty}</p>
-                    </div>
-                  }
-                />
-                <div className="flex gap-3 mt-4">
-                  {member.linkedin && (
-                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                  )}
-                  {member.github && (
-                    <a href={member.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                      <Github className="w-5 h-5" />
-                    </a>
-                  )}
-                  {member.portfolio && (
-                    <a href={member.portfolio} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                      <Globe className="w-5 h-5" />
-                    </a>
-                  )}
-                  {member.instagram && (
-                    <a href={member.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                      <Instagram className="w-5 h-5" />
-                    </a>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* CTA Section */}
-      <section className="py-20 px-6 bg-card border-t border-border">
+      {/* Internal Affairs and Logistics Team Section */}
+      {teamData.internalAffairsLogisticsTeam && teamData.internalAffairsLogisticsTeam.length > 0 && (
+        <section className="py-16 md:py-20 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col gap-3 mb-12 text-center">
+              <p className="text-primary text-xs md:text-sm font-black tracking-[0.3em] uppercase">Operations</p>
+              <h2 className="text-foreground text-2xl md:text-4xl font-bold">Internal Affairs and Logistics Team</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {teamData.internalAffairsLogisticsTeam.map((member) => (
+                <TeamMemberCard key={member.name} member={member} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Social Media and PR Team Section */}
+      {teamData.socialMediaPrTeam && teamData.socialMediaPrTeam.length > 0 && (
+        <section className="py-16 md:py-20 px-6 bg-card border-y border-border">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col gap-3 mb-12 text-center">
+              <p className="text-primary text-xs md:text-sm font-black tracking-[0.3em] uppercase">Outreach</p>
+              <h2 className="text-foreground text-2xl md:text-4xl font-bold">Social Media and PR Team</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {teamData.socialMediaPrTeam.map((member) => (
+                <TeamMemberCard key={member.name} member={member} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Social Media Section */}
+      <section className="py-16 md:py-20 px-6 bg-card border-t border-border">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Want to Join Our Team?</h2>
-          <p className="text-muted-foreground text-lg mb-8">
-            We're always looking for passionate individuals to join our community.
+          <p className="text-primary text-xs md:text-sm font-black tracking-[0.3em] uppercase mb-4">Connect</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6">{siteData.siteInfo.name} Social Media</h2>
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg mb-8">
+            Follow {siteData.siteInfo.name} for updates, events and announcements.
           </p>
-          <Link
-            to="/join"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-colors"
-          >
-            Join HackShastra SRM-AP
-          </Link>
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+            <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full text-muted-foreground hover:text-primary hover:border-primary transition-colors text-sm">
+              <Linkedin className="w-4 h-4" />
+              <span>LinkedIn</span>
+            </a>
+            <a href={socials.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full text-muted-foreground hover:text-primary hover:border-primary transition-colors text-sm">
+              <Instagram className="w-4 h-4" />
+              <span>Instagram</span>
+            </a>
+            <a href={socials.discord} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full text-muted-foreground hover:text-primary hover:border-primary transition-colors text-sm">
+              <MessageCircle className="w-4 h-4" />
+              <span>Discord</span>
+            </a>
+            <a href={`mailto:${siteData.siteInfo.contactEmail}`} className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full text-muted-foreground hover:text-primary hover:border-primary transition-colors text-sm">
+              <Mail className="w-4 h-4" />
+              <span>Email</span>
+            </a>
+          </div>
         </div>
       </section>
     </div>
