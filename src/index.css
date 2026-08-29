@@ -57,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
   --card-foreground: #fafafa;
   --popover: #111111;
   --popover-foreground: #fafafa;
-  --primary: #990000;
+  --primary:  #1d4ed8;
   --primary-foreground: #ffffff;
   --secondary: #1a1a1a;
   --secondary-foreground: #fafafa;
@@ -65,10 +65,10 @@ h1, h2, h3, h4, h5, h6 {
   --muted-foreground: #a1a1aa;
   --accent: #1a1a1a;
   --accent-foreground: #fafafa;
-  --destructive: #990000;
+  --destructive:  #dc2626;
   --border: #262626;
   --input: #262626;
-  --ring: #990000;
+  --ring: #1d4ed8;
 }
 
 @layer base {
@@ -101,12 +101,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Gradient text */
 .gradient-text {
-  color: #990000;
+  color: #1d4ed8;
 }
 
 /* Deep Crimson Red text */
 .fire-text {
-  color: #990000;
+  color: #1d4ed8;
   font-family: var(--font-heading);
 }
 

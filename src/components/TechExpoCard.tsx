@@ -83,7 +83,7 @@ const TechExpoCard = ({
       </svg>
 
       {featuredLabel && (
-        <p className="text-red-500 text-xs font-black uppercase tracking-[0.3em] mb-4">
+        <p className="text-blue-500 text-xs font-black uppercase tracking-[0.3em] mb-4">
           {featuredLabel}
         </p>
       )}
@@ -101,7 +101,7 @@ const TechExpoCard = ({
               filter: 'url(#jagged-border)',
               border: '2px solid #dc2626',
               borderRadius: '16px',
-              boxShadow: '0 0 18px rgba(220,38,38,0.8), 0 0 50px rgba(220,38,38,0.35), inset 0 0 12px rgba(220,38,38,0.15)',
+              boxShadow: '0 0 18px rgba(37, 99, 235,0.8), 0 0 50px rgba(37, 99, 235,0.35), inset 0 0 12px rgba(37, 99, 235,0.15)',
             }}
           />
           <div
@@ -119,7 +119,7 @@ const TechExpoCard = ({
               </div>
             )}
             {comingSoon && (
-              <div className="absolute top-3 left-3 z-10 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-widest animate-pulse">
+              <div className="absolute top-3 left-3 z-10 bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-widest animate-pulse">
                 Coming Soon
               </div>
             )}
@@ -135,10 +135,10 @@ const TechExpoCard = ({
           <div className="flex flex-col gap-4 mt-1">
             {extraDates?.map((d, i) => (
               <div key={i} className="flex items-start gap-3">
-                <Clock className="w-4 h-4 text-red-500 mt-0.5 shrink-0" />
+                <Clock className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
                 <div>
                   <p className="text-white text-sm font-bold">{d.label}</p>
-                  <p className={d.highlight ? 'text-red-400 text-sm font-medium' : 'text-gray-400 text-sm'}>
+                  <p className={d.highlight ? 'text-blue-400 text-sm font-medium' : 'text-gray-400 text-sm'}>
                     {d.value}
                   </p>
                 </div>
@@ -146,16 +146,16 @@ const TechExpoCard = ({
             ))}
             {date && (
               <div className="flex items-start gap-3">
-                <Calendar className="w-4 h-4 text-red-500 mt-0.5 shrink-0" />
+                <Calendar className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
                 <div>
                   <p className="text-white text-sm font-bold">Date</p>
-                  <p className="text-red-400 text-sm font-medium">{date}</p>
+                  <p className="text-blue-400 text-sm font-medium">{date}</p>
                 </div>
               </div>
             )}
             {venue && (
               <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-red-500 mt-0.5 shrink-0" />
+                <MapPin className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
                 <div>
                   <p className="text-white text-sm font-bold">Venue</p>
                   <p className="text-gray-400 text-sm">{venue}</p>
@@ -164,7 +164,7 @@ const TechExpoCard = ({
             )}
             {prize && (
               <div className="flex items-start gap-3">
-                <Trophy className="w-4 h-4 text-red-500 mt-0.5 shrink-0" />
+                <Trophy className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
                 <div>
                   <p className="text-white text-sm font-bold">Prize Pool</p>
                   <p className="text-gray-400 text-sm">{prize}</p>
@@ -178,7 +178,7 @@ const TechExpoCard = ({
               href={registerLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 bg-red-600 hover:bg-red-500 text-white text-sm font-bold px-6 py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-200 shadow-[0_0_20px_rgba(239,68,68,0.3)] hover:shadow-[0_0_35px_rgba(239,68,68,0.6)]"
+              className="mt-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold px-6 py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-200 shadow-[0_0_20px_rgba(239,68,68,0.3)] hover:shadow-[0_0_35px_rgba(239,68,68,0.6)]"
             >
               {registerLabel} <ExternalLink className="w-4 h-4" />
             </a>
