@@ -48,27 +48,27 @@ h1, h2, h3, h4, h5, h6 {
   --color-ring: var(--ring);
 }
 
-/* Dark theme by default */
+/* Light theme */
 :root {
   --radius: 0.75rem;
-  --background: #0a0a0a;
-  --foreground: #fafafa;
-  --card: #111111;
-  --card-foreground: #fafafa;
-  --popover: #111111;
-  --popover-foreground: #fafafa;
-  --primary: #990000;
+  --background: #ffffff;
+  --foreground: #111111;
+  --card: #ffffff;
+  --card-foreground: #111111;
+  --popover: #ffffff;
+  --popover-foreground: #111111;
+  --primary: #0da5f0;
   --primary-foreground: #ffffff;
-  --secondary: #1a1a1a;
-  --secondary-foreground: #fafafa;
-  --muted: #1a1a1a;
-  --muted-foreground: #a1a1aa;
-  --accent: #1a1a1a;
-  --accent-foreground: #fafafa;
-  --destructive: #990000;
-  --border: #262626;
-  --input: #262626;
-  --ring: #990000;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #111111;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #e0f2fe;
+  --accent-foreground: #0da5f0;
+  --destructive: #ef4444;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #0da5f0;
 }
 
 @layer base {
@@ -101,12 +101,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Gradient text */
 .gradient-text {
-  color: #990000;
+  color: #0DA5F0;
 }
 
-/* Deep Crimson Red text */
+/* Deep Crimson blue text */
 .fire-text {
-  color: #990000;
+  color: #0DA5F0;
   font-family: var(--font-heading);
 }
 
@@ -132,13 +132,17 @@ h1, h2, h3, h4, h5, h6 {
   background: #0a0a0a;
 }
 
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #444;
+  background: #3a6fb9;
 }
 
 /* Custom image positioning for team members */

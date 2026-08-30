@@ -67,8 +67,8 @@
   width: 180px;
   height: 180px;
   border: 2px solid transparent;
-  border-top-color: #990000;
-  border-right-color: #cc2200;
+  border-top-color: #e6e7f4;
+  border-right-color: #e5e3f1;
   border-radius: 50%;
   animation: ring-rotate 1.5s linear infinite;
 }
@@ -80,8 +80,8 @@
   width: 160px;
   height: 160px;
   border: 1px solid transparent;
-  border-bottom-color: #ff4400;
-  border-left-color: #990000;
+  border-bottom-color: #d8d3e3;
+  border-left-color: #cccde4;
   border-radius: 50%;
   animation: ring-rotate 2s linear infinite reverse;
 }
@@ -101,8 +101,8 @@
   width: 100%;
   height: 100%;
   background: radial-gradient(circle, 
-    rgba(153, 0, 0, 0.6) 0%, 
-    rgba(204, 34, 0, 0.3) 40%, 
+    rgba(6, 13, 142, 0.6) 0%, 
+    rgba(38, 10, 163, 0.3) 40%, 
     transparent 70%);
   animation: fire-breathe 2s ease-in-out infinite;
   filter: blur(15px);
@@ -151,8 +151,8 @@
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff4400;
-  box-shadow: 0 0 6px #ff4400, 0 0 12px #990000;
+  background: #230eb2;
+  box-shadow: 0 0 6px #140ecb, 0 0 12px #3035b8;
   animation: particle-float 2s ease-out infinite;
   opacity: 0;
 }
@@ -199,18 +199,18 @@
   font-family: 'Cinzel', serif;
   font-size: 2rem;
   font-weight: 700;
-  color: #990000;
+  color: #d4e1e3;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin: 0;
   animation: text-glow 2s ease-in-out infinite;
-  text-shadow: 0 0 20px rgba(153, 0, 0, 0.5);
+  text-shadow: 0 0 20px rgba(64, 65, 167, 0.5);
 }
 
 .loading-subtitle {
   font-family: 'Manrope', sans-serif;
   font-size: 0.75rem;
-  color: #666;
+  color: #ead5d5;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   margin-top: 0.5rem;
@@ -245,8 +245,8 @@
   font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
-  background: linear-gradient(135deg, #990000, #cc2200);
-  border: 2px solid #990000;
+  background: linear-gradient(135deg, #1903a5, #1b30a8);
+  border: 2px solid #d1d0e3;
   padding: 0.875rem 2.5rem;
   border-radius: 50px;
   cursor: pointer;
@@ -255,7 +255,7 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(153, 0, 0, 0.4);
+  box-shadow: 0 4px 20px rgba(8, 27, 132, 0.4);
 }
 
 .enter-button::before {
@@ -272,8 +272,8 @@
 .enter-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 30px rgba(153, 0, 0, 0.6);
-  background: linear-gradient(135deg, #cc2200, #ff4400);
-  border-color: #cc2200;
+  background: linear-gradient(135deg, #192bc9, #2929d0);
+  border-color: #d5d1e8;
 }
 
 .enter-button:hover::before {
@@ -286,7 +286,7 @@
 }
 
 .enter-button:focus {
-  outline: 2px solid #ff4400;
+  outline: 2px solid #101aa7;
   outline-offset: 4px;
 }
 

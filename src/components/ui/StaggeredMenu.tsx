@@ -35,7 +35,7 @@ interface StaggeredMenuProps {
 
 export const StaggeredMenu = ({
   position = 'right',
-  colors = ['#990000', '#cc2200'],
+  colors = ['#1d4ed8', '#cc2200'],
   items = [],
   socialItems = [],
   displaySocials = true,
@@ -44,7 +44,7 @@ export const StaggeredMenu = ({
   logoUrl,
   menuButtonColor = '#fff',
   openMenuButtonColor = '#fff',
-  accentColor = '#990000',
+  accentColor = '#1d4ed8',
   changeMenuColorOnOpen = true,
   isFixed = false,
   closeOnClickAway = true,
@@ -350,7 +350,7 @@ export const StaggeredMenu = ({
 
   return (
     <div
-      className={(className ? className + ' ' : '') + 'staggered-menu-wrapper' + (isFixed ? ' fixed-wrapper' : '')}
+      className={(className ? className + ' ' : '') + 'staggeblue-menu-wrapper' + (isFixed ? ' fixed-wrapper' : '')}
       style={accentColor ? { ['--sm-accent' as string]: accentColor } : undefined}
       data-position={position}
       data-open={open || undefined}
@@ -372,7 +372,7 @@ export const StaggeredMenu = ({
         className="sm-toggle"
         aria-label={open ? 'Close menu' : 'Open menu'}
         aria-expanded={open}
-        aria-controls="staggered-menu-panel"
+        aria-controls="staggeblue-menu-panel"
         onClick={toggleMenu}
         type="button"
       >
@@ -389,7 +389,7 @@ export const StaggeredMenu = ({
         </span>
       </button>
 
-      <aside id="staggered-menu-panel" ref={panelRef} className="staggered-menu-panel" aria-hidden={!open}>
+      <aside id="staggeblue-menu-panel" ref={panelRef} className="staggeblue-menu-panel" aria-hidden={!open}>
         <div className="sm-panel-inner">
           {logoUrl && (
             <div className="sm-panel-logo">

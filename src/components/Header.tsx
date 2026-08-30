@@ -66,7 +66,7 @@ const Header = () => {
           {/* Back Pill Button */}
           <button
             onClick={handleBackClick}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-neutral-900/90 border border-neutral-700/80 rounded-full text-white text-xs sm:text-sm font-medium hover:bg-neutral-800 hover:border-red-600/50 transition-all duration-200 shadow-md group focus:outline-none focus:ring-2 focus:ring-red-600"
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-neutral-900/90 border border-neutral-700/80 rounded-full text-white text-xs sm:text-sm font-medium hover:bg-neutral-800 hover:border-blue-600/50 transition-all duration-200 shadow-md group focus:outline-none focus:ring-2 focus:ring-blue-600"
             aria-label="Go back"
           >
             <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white group-hover:-translate-x-0.5 transition-transform" />
@@ -76,7 +76,7 @@ const Header = () => {
           {/* Brand Logo Text */}
           <Link
             to="/"
-            className="text-red-600 font-black tracking-wider text-sm sm:text-lg hover:text-red-500 transition-colors uppercase"
+            className="text-blue-600 font-black tracking-wider text-sm sm:text-lg hover:text-blue-500 transition-colors uppercase"
           >
             {siteName}
           </Link>
@@ -92,7 +92,7 @@ const Header = () => {
                 to={link.href}
                 className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
                   active
-                    ? 'bg-red-600 text-white shadow-[0_0_15px_rgba(220,38,38,0.85)] font-semibold'
+                    ? 'bg-blue-600 text-white shadow-[0_0_15px_rgba(37, 99, 235,0.85)] font-semibold'
                     : 'text-neutral-300 hover:text-white hover:bg-neutral-800/60'
                 }`}
               >
@@ -107,7 +107,7 @@ const Header = () => {
           {/* Rectangular Red Outlined JOIN US Button */}
           <Link
             to={joinHref}
-            className="hidden sm:inline-flex items-center justify-center border border-red-600 text-red-500 hover:bg-red-600 hover:text-white px-4 py-1.5 rounded-sm font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 shadow-sm"
+            className="hidden sm:inline-flex items-center justify-center border border-blue-600 text-blue-500 hover:bg-blue-600 hover:text-white px-4 py-1.5 rounded-sm font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 shadow-sm"
           >
             {joinButtonText}
           </Link>
@@ -115,7 +115,7 @@ const Header = () => {
           {/* Mobile Hamburger Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg bg-neutral-900 border border-neutral-800 text-white hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-600"
+            className="md:hidden p-2 rounded-lg bg-neutral-900 border border-neutral-800 text-white hover:text-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
             aria-label="Toggle Navigation Menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -136,7 +136,7 @@ const Header = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
                   active
-                    ? 'bg-red-600 text-white font-bold shadow-[0_0_12px_rgba(220,38,38,0.7)]'
+                    ? 'bg-blue-600 text-white font-bold shadow-[0_0_12px_rgba(37, 99, 235,0.7)]'
                     : 'text-neutral-300 hover:bg-neutral-900 hover:text-white'
                 }`}
               >
@@ -149,7 +149,7 @@ const Header = () => {
             <Link
               to={joinHref}
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full inline-flex items-center justify-center border border-red-600 text-red-500 hover:bg-red-600 hover:text-white py-2.5 rounded-lg font-bold text-sm tracking-wider uppercase transition-all"
+              className="w-full inline-flex items-center justify-center border border-blue-600 text-blue-500 hover:bg-blue-600 hover:text-white py-2.5 rounded-lg font-bold text-sm tracking-wider uppercase transition-all"
             >
               {joinButtonText}
             </Link>
