@@ -15,8 +15,8 @@
   width: 28px;
   height: auto;
   filter: brightness(0) saturate(100%) invert(10%) sepia(100%) saturate(5000%) hue-rotate(0deg) brightness(80%)
-          drop-shadow(0 0 3px rgba(153, 0, 0, 0.8))
-          drop-shadow(0 0 6px rgba(204, 34, 0, 0.5));
+          drop-shadow(0 0 3px rgba(8, 0, 153, 0.8))
+          drop-shadow(0 0 6px rgba(20, 0, 204, 0.5));
   transition: filter 0.2s ease, transform 0.2s ease;
 }
 

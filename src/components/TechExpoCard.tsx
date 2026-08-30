@@ -99,9 +99,9 @@ const TechExpoCard = ({
             className="absolute inset-0 rounded-2xl z-10 pointer-events-none"
             style={{
               filter: 'url(#jagged-border)',
-              border: '2px solid #dc2626',
+              border: '2px solid #3746e3',
               borderRadius: '16px',
-              boxShadow: '0 0 18px rgba(37, 99, 235,0.8), 0 0 50px rgba(37, 99, 235,0.35), inset 0 0 12px rgba(37, 99, 235,0.15)',
+              boxShadow: '0 0 18px rgba(238, 240, 244, 0.8), 0 0 50px rgba(37, 99, 235,0.35), inset 0 0 12px rgba(37, 99, 235,0.15)',
             }}
           />
           <div

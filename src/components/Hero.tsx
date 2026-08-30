@@ -79,12 +79,13 @@ const Hero = ({ loadingComplete = false, userInteracted = false }: HeroProps) =>
     <section className="relative min-h-screen flex flex-col pt-16">
       {/* Video Banner */}
       <div className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] w-full overflow-hidden">
-        <video
+                <video
           ref={videoRef}
           muted={isMuted}
           playsInline
           preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ filter: 'hue-rotate(220deg) saturate(1.3)' }}
         >
           <source src={videoSrc} type="video/mp4" />
         </video>
