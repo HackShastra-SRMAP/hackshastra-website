@@ -81,12 +81,12 @@ export default function ContactPage() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12 md:mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-950/60 border border-blue-800/50 text-blue-400 text-xs font-semibold uppercase tracking-widest mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-blue-500" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-950/60 border border-red-800/50 text-red-400 text-xs font-semibold uppercase tracking-widest mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-red-500" />
               Direct Communication
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tight mb-3 md:mb-4">
-              Get in <span className="text-blue-600 fire-text">Touch</span>
+              Get in <span className="text-red-600 fire-text">Touch</span>
             </h1>
             <p className="text-muted-foreground text-sm sm:text-base max-w-xl mx-auto">
               {contactData.subtitle}
@@ -103,9 +103,9 @@ export default function ContactPage() {
                 
                 <div className="space-y-6">
                   {/* Email Box */}
-                  <div className="flex items-center justify-between p-4 rounded-xl bg-neutral-900/90 border border-neutral-800 hover:border-blue-600/40 transition-all">
+                  <div className="flex items-center justify-between p-4 rounded-xl bg-neutral-900/90 border border-neutral-800 hover:border-red-600/40 transition-all">
                     <div className="flex items-center gap-3.5">
-                      <div className="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-600/20 flex items-center justify-center text-blue-500 shrink-0">
+                      <div className="w-10 h-10 rounded-lg bg-red-600/10 border border-red-600/20 flex items-center justify-center text-red-500 shrink-0">
                         <Mail className="w-5 h-5" />
                       </div>
                       <div>
@@ -123,9 +123,9 @@ export default function ContactPage() {
                   </div>
 
                   {/* Location Box */}
-                  <div className="flex items-center justify-between p-4 rounded-xl bg-neutral-900/90 border border-neutral-800 hover:border-blue-600/40 transition-all">
+                  <div className="flex items-center justify-between p-4 rounded-xl bg-neutral-900/90 border border-neutral-800 hover:border-red-600/40 transition-all">
                     <div className="flex items-center gap-3.5">
-                      <div className="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-600/20 flex items-center justify-center text-blue-500 shrink-0">
+                      <div className="w-10 h-10 rounded-lg bg-red-600/10 border border-red-600/20 flex items-center justify-center text-red-500 shrink-0">
                         <MapPin className="w-5 h-5" />
                       </div>
                       <div>
@@ -143,9 +143,9 @@ export default function ContactPage() {
                   </div>
 
                   {/* Phone Box */}
-                  <div className="flex items-center justify-between p-4 rounded-xl bg-neutral-900/90 border border-neutral-800 hover:border-blue-600/40 transition-all">
+                  <div className="flex items-center justify-between p-4 rounded-xl bg-neutral-900/90 border border-neutral-800 hover:border-red-600/40 transition-all">
                     <div className="flex items-center gap-3.5">
-                      <div className="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-600/20 flex items-center justify-center text-blue-500 shrink-0">
+                      <div className="w-10 h-10 rounded-lg bg-red-600/10 border border-red-600/20 flex items-center justify-center text-red-500 shrink-0">
                         <Phone className="w-5 h-5" />
                       </div>
                       <div>
@@ -161,17 +161,17 @@ export default function ContactPage() {
                   <h3 className="font-semibold text-sm mb-3">Connect via Community Channels</h3>
                   <div className="flex gap-3">
                     <a href={socials.instagram} target="_blank" rel="noopener noreferrer" 
-                       className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-blue-600/50 hover:text-blue-500 text-xs font-medium transition-all">
+                       className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-red-600/50 hover:text-red-500 text-xs font-medium transition-all">
                       <Instagram className="w-4 h-4" />
                       Instagram
                     </a>
                     <a href={socials.linkedin} target="_blank" rel="noopener noreferrer"
-                       className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-blue-600/50 hover:text-blue-500 text-xs font-medium transition-all">
+                       className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-red-600/50 hover:text-red-500 text-xs font-medium transition-all">
                       <Linkedin className="w-4 h-4" />
                       LinkedIn
                     </a>
                     <a href={socials.discord} target="_blank" rel="noopener noreferrer"
-                       className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-blue-600/50 hover:text-blue-500 text-xs font-medium transition-all">
+                       className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-red-600/50 hover:text-red-500 text-xs font-medium transition-all">
                       <MessageCircle className="w-4 h-4" />
                       Discord
                     </a>
@@ -210,8 +210,8 @@ export default function ContactPage() {
               </p>
 
               {submitted ? (
-                <div className="p-6 rounded-2xl bg-blue-950/40 border border-blue-800/60 text-center space-y-4 animate-in fade-in zoom-in-95 duration-300">
-                  <div className="w-12 h-12 rounded-full bg-blue-600/20 border border-blue-500 text-blue-500 flex items-center justify-center mx-auto">
+                <div className="p-6 rounded-2xl bg-red-950/40 border border-red-800/60 text-center space-y-4 animate-in fade-in zoom-in-95 duration-300">
+                  <div className="w-12 h-12 rounded-full bg-red-600/20 border border-red-500 text-red-500 flex items-center justify-center mx-auto">
                     <Check className="w-6 h-6" />
                   </div>
                   <h3 className="text-lg font-bold text-white">Message Sent Successfully!</h3>
@@ -237,7 +237,7 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-neutral-900/90 border border-neutral-800 focus:border-blue-600 focus:outline-none transition-colors text-sm text-white placeholder-neutral-500"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-neutral-900/90 border border-neutral-800 focus:border-red-600 focus:outline-none transition-colors text-sm text-white placeholder-neutral-500"
                         placeholder="John Doe"
                       />
                     </div>
@@ -250,7 +250,7 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-neutral-900/90 border border-neutral-800 focus:border-blue-600 focus:outline-none transition-colors text-sm text-white placeholder-neutral-500"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-neutral-900/90 border border-neutral-800 focus:border-red-600 focus:outline-none transition-colors text-sm text-white placeholder-neutral-500"
                         placeholder="john@example.com"
                       />
                     </div>
@@ -265,7 +265,7 @@ export default function ContactPage() {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-neutral-900/90 border border-neutral-800 focus:border-blue-600 focus:outline-none transition-colors text-sm text-white placeholder-neutral-500"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-neutral-900/90 border border-neutral-800 focus:border-red-600 focus:outline-none transition-colors text-sm text-white placeholder-neutral-500"
                       placeholder="Hackathon inquiry / Sponsorship / Query"
                     />
                   </div>
@@ -279,19 +279,19 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-neutral-900/90 border border-neutral-800 focus:border-blue-600 focus:outline-none transition-colors resize-none text-sm text-white placeholder-neutral-500"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-neutral-900/90 border border-neutral-800 focus:border-red-600 focus:outline-none transition-colors resize-none text-sm text-white placeholder-neutral-500"
                       placeholder="Type your message here..."
                     />
                   </div>
 
                   {errorMsg && (
-                    <p className="text-xs text-blue-500">{errorMsg}</p>
+                    <p className="text-xs text-red-500">{errorMsg}</p>
                   )}
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3 px-6 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(37, 99, 235,0.4)] disabled:opacity-50 text-sm"
+                    className="w-full py-3 px-6 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)] disabled:opacity-50 text-sm"
                   >
                     {isSubmitting ? (
                       <>

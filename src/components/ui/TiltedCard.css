@@ -67,7 +67,7 @@
   left: 0;
   top: 0;
   border-radius: 4px;
-  background-color: #e7cece;
+  background-color: #990000;
   padding: 4px 10px;
   font-size: 10px;
   color: #fff;
@@ -84,6 +84,6 @@
 
 .tilted-card-overlay-role {
   font-size: 0.875rem;
-  color: #9a8787;
+  color: #990000;
   margin: 0;
 }

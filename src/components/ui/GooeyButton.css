@@ -1,5 +1,5 @@
 .gooey-button {
-  color: #1d4ed8;
+  color: #990000;
   font-weight: 700;
   font-size: 14px;
   text-decoration: none;
@@ -13,7 +13,7 @@
   z-index: 1;
   text-transform: uppercase;
   letter-spacing: 2px;
-  border: 2px solid#1d4ed8;
+  border: 2px solid #990000;
   border-radius: 0;
   background: transparent;
   transition: all 500ms ease;
@@ -34,7 +34,7 @@
 }
 
 .gooey-button__blobs div {
-  background-color: #1c13c2;
+  background-color: #990000;
   width: 34%;
   height: 100%;
   border-radius: 100%;
@@ -58,8 +58,8 @@
 }
 
 .gooey-button:hover {
-  color: #cdd5e0;
-  border-color: #2313cc;
+  color: #fff;
+  border-color: #990000;
 }
 
 .gooey-button:hover .gooey-button__blobs div {
