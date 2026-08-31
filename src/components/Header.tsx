@@ -1,6 +1,6 @@
-import { useState, useCallback, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import siteData from '@/data/siteData';
 
 /**
@@ -14,7 +14,6 @@ import siteData from '@/data/siteData';
  */
 const Header = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Fetch nav links & site info directly from siteData configuration
@@ -26,23 +25,14 @@ const Header = () => {
   /**
    * Check if a link is currently active based on browser location URL path
    */
-  const isLinkActive = useCallback((href: string) => {
-    if (href === '/') {
-      return location.pathname === '/';
-    }
-    return location.pathname.startsWith(href);
-  }, [location.pathname]);
+ const isLinkActive = (href: string) => {
+  if (href === '/') {
+    return location.pathname === '/';
+  }
+  return location.pathname.startsWith(href);
+};
 
-  /**
-   * Handle dynamic Back button action
-   */
-  const handleBackClick = useCallback(() => {
-    if (window.history.length > 2 && location.pathname !== '/') {
-      navigate(-1);
-    } else {
-      navigate('/');
-    }
-  }, [location.pathname, navigate]);
+
 
   /**
    * Keyboard accessibility: Close mobile drawer on Escape key press
@@ -61,17 +51,9 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 py-3 bg-black/90 backdrop-blur-md border-b border-neutral-800/80 shadow-2xl">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         
-        {/* LEFT SECTION: Back Button + Brand Name */}
+        {/* LEFT SECTION: Brand Name */}
         <div className="flex items-center gap-2 sm:gap-4">
-          {/* Back Pill Button */}
-          <button
-            onClick={handleBackClick}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-neutral-900/90 border border-neutral-700/80 rounded-full text-white text-xs sm:text-sm font-medium hover:bg-neutral-800 hover:border-red-600/50 transition-all duration-200 shadow-md group focus:outline-none focus:ring-2 focus:ring-red-600"
-            aria-label="Go back"
-          >
-            <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white group-hover:-translate-x-0.5 transition-transform" />
-            <span>Back</span>
-          </button>
+        
 
           {/* Brand Logo Text */}
           <Link
