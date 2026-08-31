@@ -35,7 +35,7 @@ class ErrorBoundary extends Component<Props, State> {
               An unexpected error occurred. Please try refreshing the page.
             </p>
             {this.state.error && (
-              <pre className="text-left text-blue-400 text-xs bg-black p-4 rounded-lg mb-6 overflow-auto max-h-48">
+              <pre className="text-left text-red-400 text-xs bg-black p-4 rounded-lg mb-6 overflow-auto max-h-48">
                 {this.state.error.message}
                 {'\n\n'}
                 {this.state.error.stack}

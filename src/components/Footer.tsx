@@ -30,7 +30,7 @@ const Footer = () => {
             {socialLinks.map((social, index) => (
               <a
                 key={index}
-                className="text-muted-foreground hover:text-blue-500 transition-colors p-2 bg-neutral-900 rounded-lg border border-neutral-800"
+                className="text-muted-foreground hover:text-red-500 transition-colors p-2 bg-neutral-900 rounded-lg border border-neutral-800"
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -48,7 +48,7 @@ const Footer = () => {
           <ul className="flex flex-col gap-3 text-muted-foreground text-xs md:text-sm font-medium">
             {links.slice(0, 4).map((link) => (
               <li key={link.label}>
-                <Link className="hover:text-blue-500 transition-colors" to={link.href}>
+                <Link className="hover:text-red-500 transition-colors" to={link.href}>
                   {link.label}
                 </Link>
               </li>
@@ -62,13 +62,13 @@ const Footer = () => {
           <ul className="flex flex-col gap-3 text-muted-foreground text-xs md:text-sm font-medium">
             {links.slice(4).map((link) => (
               <li key={link.label}>
-                <Link className="hover:text-blue-500 transition-colors" to={link.href}>
+                <Link className="hover:text-red-500 transition-colors" to={link.href}>
                   {link.label}
                 </Link>
               </li>
             ))}
             <li>
-              <Link className="hover:text-blue-500 transition-colors" to={siteData.navigation.joinHref}>
+              <Link className="hover:text-red-500 transition-colors" to={siteData.navigation.joinHref}>
                 {siteData.navigation.joinButtonText}
               </Link>
             </li>
@@ -77,7 +77,7 @@ const Footer = () => {
             href="https://www.google.com/maps/dir/?api=1&destination=16.462717,80.506813"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full h-20 md:h-24 bg-neutral-900 rounded-lg flex items-center justify-center overflow-hidden border border-neutral-800 hover:border-blue-600/50 transition-colors group relative"
+            className="w-full h-20 md:h-24 bg-neutral-900 rounded-lg flex items-center justify-center overflow-hidden border border-neutral-800 hover:border-red-600/50 transition-colors group relative"
             role="img"
             aria-label="Map showing SRM University-AP campus location"
           >
@@ -85,7 +85,7 @@ const Footer = () => {
               className="w-full h-full bg-cover bg-center grayscale opacity-60 group-hover:scale-105 transition-transform"
               style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuD1iS18tTym3ePS6ILFpPh-zs5GiYEk-VUmb_w7g7AnmwRo_9_6GqXWL9XMVnviYCJO1Z7_1gGK6N0KBQlgXjfbOqF7I_SVYDpzUfFotto_itFq3xmkhYG1VW0unqR2teY8Rfg8uIe2UatEqJf-1uiqr_3xhhMn40_nOt93dtqFxwbkUOrwdIDNEFJFknkQ5Z-Tnx2VVLYYLK7azLZfKEwTCP-rJ3qz8sbp6niyOVEcCvO8VliwyDWd1tVNMe4C3-gs9OaqW3BmfZ3M")' }}
             />
-            <span className="absolute text-[10px] uppercase font-bold tracking-widest bg-black/80 px-2.5 py-1 rounded text-blue-500 border border-neutral-700">
+            <span className="absolute text-[10px] uppercase font-bold tracking-widest bg-black/80 px-2.5 py-1 rounded text-red-500 border border-neutral-700">
               Open Map ↗
             </span>
           </a>
@@ -95,7 +95,7 @@ const Footer = () => {
         <div className="flex flex-col gap-4 md:gap-6">
           <h4 className="text-foreground font-bold text-xs md:text-sm uppercase tracking-widest">Location</h4>
           <div className="flex items-start gap-2 text-muted-foreground text-xs md:text-sm leading-relaxed">
-            <MapPin className="h-4 w-4 text-blue-500 mt-0.5 shrink-0" />
+            <MapPin className="h-4 w-4 text-red-500 mt-0.5 shrink-0" />
             <p className="whitespace-pre-line">
               {locationText}
             </p>
